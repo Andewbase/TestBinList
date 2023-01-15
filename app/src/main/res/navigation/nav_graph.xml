@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.testcft.screen.main.MainFragment"
+        android:label="Search Bank Card"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_cacheFragment"
+            app:destination="@id/cacheFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cacheFragment"
+        android:name="com.example.testcft.screen.cache.CacheFragment"
+        android:label="List Bank Card"
+        tools:layout="@layout/fragment_cache" >
+        <action
+            android:id="@+id/action_cacheFragment_to_detailCardInfoFragment"
+            app:destination="@id/detailCardInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailCardInfoFragment"
+        android:name="com.example.testcft.screen.detailcardinfo.DetailCardInfoFragment"
+        android:label="Detail Bank Card"
+        tools:layout="@layout/fragment_detail_card_info" >
+        <argument
+            android:name="cardDetail"
+            app:argType="com.example.testcft.data.cache.BankCardInfoEntity" />
+    </fragment>
+</navigation>
