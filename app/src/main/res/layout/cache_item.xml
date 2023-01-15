@@ -6,16 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <TextView
         android:id="@+id/tvBankName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:textColor="@color/black"
+        android:layout_marginTop="12dp"
         android:text="@string/bank"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNumb" />
 
     <TextView
         android:id="@+id/tvUrlBankName"
@@ -44,11 +45,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="12dp"
         android:text="@string/whitespace"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/tvBankName"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNumberCard" />
 
     <TextView
         android:id="@+id/tvSetUrlBank"
@@ -80,4 +81,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBankPhoneName" />
+
+    <TextView
+        android:id="@+id/tvNumberCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/whitespace"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/tvNumb"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/number_card"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

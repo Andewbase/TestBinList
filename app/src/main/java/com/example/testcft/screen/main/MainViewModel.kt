@@ -29,7 +29,7 @@ class MainViewModel @Inject constructor(
                     response.body().let { bank ->
                         _bankCardLiveData.postValue(Resource.Success(bank))
                         if (number != DEF_PATCH){
-                            repository.saveCardInfo(bank!!.toBankEntity())
+                            repository.saveCardInfo(bank!!.toBankEntity(number))
                         }
                     }
                 }else{

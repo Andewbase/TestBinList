@@ -10,7 +10,8 @@ import java.io.Serializable
 @Parcelize
 data class BankCardInfoEntity(
     @PrimaryKey
-    val nameBank: String,
+    val number: String,
+    val nameBank: String?,
     val scheme: String?,
     val type: String?,
     val brand: String?,

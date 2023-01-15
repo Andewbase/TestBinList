@@ -23,6 +23,7 @@ class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder
                 binding.tvSetBankName.text = bankCardInfoEntity.nameBank
                 binding.tvSetUrlBank.text = bankCardInfoEntity.urlBank
                 binding.tvSetPhoneBank.text = bankCardInfoEntity.phoneBank
+                binding.tvNumberCard.text = bankCardInfoEntity.number
                 binding.root.setOnClickListener { onItemClick?.onItemClick(bankCardInfoEntity) }
             }
         }

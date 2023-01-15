@@ -21,4 +21,5 @@
     <string name="calTheBank">Позвонить в Банк</string>
     <string name="findABankOnTheMap">Найти Банк на Карте</string>
     <string name="goTooTheBanksWebsite">Зайти на сайт Банка</string>
+    <string name="number_card">Number Card:</string>
 </resources>
