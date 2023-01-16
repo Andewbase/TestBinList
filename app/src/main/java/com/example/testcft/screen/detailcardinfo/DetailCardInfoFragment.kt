@@ -1,18 +1,12 @@
 package com.example.testcft.screen.detailcardinfo
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.testcft.R
 import com.example.testcft.databinding.FragmentDetailCardInfoBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DetailCardInfoFragment : Fragment(R.layout.fragment_detail_card_info) {

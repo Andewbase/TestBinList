@@ -1,14 +1,13 @@
 package com.example.testcft.screen.cache
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.testcft.R
 import com.example.testcft.data.cache.BankCardInfoEntity
 import com.example.testcft.databinding.FragmentCacheBinding
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
