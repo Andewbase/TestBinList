@@ -16,8 +16,8 @@ data class BankCard(
     val type: String
 ): Serializable, Parcelable{
 
-    fun toBankEntity(number: String) = BankCardInfoEntity(
-        number,
+    fun toBankEntity(numberCard: String) = BankCardInfoEntity(
+        numberCard,
         bank.name,
         scheme,
         type,
