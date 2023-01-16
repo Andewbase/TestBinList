@@ -17,7 +17,7 @@ class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder
         this.onItemClick = onItemClick
     }
 
-    inner class CacheViewHolder(val binding: CacheItemBinding): RecyclerView.ViewHolder(binding.root){
+    inner class CacheViewHolder(private val binding: CacheItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(bankCardInfoEntity: BankCardInfoEntity){
             with(binding){
                 binding.tvSetBankName.text = bankCardInfoEntity.nameBank

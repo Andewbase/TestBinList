@@ -10,8 +10,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repository: BankCardRepository,
-    private val state: SavedStateHandle
+    private val repository: BankCardRepository
 ): ViewModel() {
 
     private val _bankCardLiveData: MutableLiveData<Resource<BankCard>> = MutableLiveData()
