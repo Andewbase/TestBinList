@@ -1,4 +1,4 @@
-package com.example.testcft.screen.cache
+package com.example.testcft.screen.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -17,13 +17,16 @@ class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder
     }
 
     inner class CacheViewHolder(private val binding: CacheItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(bankCardInfoEntity: BankCardInfoEntity){
+        fun bind(cardDetail: BankCardInfoEntity){
             with(binding){
-                binding.tvSetBankName.text = bankCardInfoEntity.nameBank
-                binding.tvSetUrlBank.text = bankCardInfoEntity.urlBank
-                binding.tvSetPhoneBank.text = bankCardInfoEntity.phoneBank
-                binding.tvNumberCard.text = bankCardInfoEntity.number
-                binding.root.setOnClickListener { onItemClick?.onItemClick(bankCardInfoEntity) }
+                requestNumber.text = cardDetail.number
+                schema.text = cardDetail.scheme
+                currencyText.text = cardDetail.currency
+                countryText.text = cardDetail.countryName
+                countryEmoji.text = cardDetail.countryEmoji
+                timestamp.text = cardDetail.timestamp
+
+                root.setOnClickListener { onItemClick?.onItemClick(cardDetail) }
             }
         }
     }
@@ -42,7 +45,7 @@ class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder
     }
 
     interface OnItemClick{
-        fun onItemClick(bankCardInfoEntity: BankCardInfoEntity)
+        fun onItemClick(cardDetail: BankCardInfoEntity)
     }
 
     companion object DiffUtilCallbackCache: DiffUtil.ItemCallback<BankCardInfoEntity>() {

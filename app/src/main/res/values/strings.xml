@@ -2,19 +2,22 @@
     <string name="app_name">TestCFT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="bin">Начать проверку карты</string>
+    <string name="bin">Поиск карты</string>
     <string name="edBin">Введите первые 8 цифр карты</string>
     <string name="nameBank">Название банка:</string>
     <string name="scheme">Scheme: </string>
-    <string name="detailsCardInfo">Полная Информация о карте:</string>
+    <string name="detailsCardInfo">Информация о карте:</string>
     <string name="type">Type: </string>
     <string name="bank">Bank: </string>
     <string name="brand">Brand: </string>
     <string name="prepaid">Prepaid: </string>
-    <string name="url">URL BANK: </string>
+    <string name="url">Сайт Банка: </string>
     <string name="length">Length: </string>
-    <string name="country">Country: </string>
-    <string name="phone_bank">Phone Bank: </string>
+    <string name="country_header">Страна: </string>
+    <string name="currency_header">Валюта: </string>
+    <string name="bank_city_header">Город: </string>
+    <string name="phone_bank">Телефон Банка: </string>
+    <string name="phone_bank2">Телефон Банка2: </string>
     <string name="whitespace">____</string>
     <string name="error">пожалуйста введите 8 символов</string>
     <string name="request">Последние 10 запросов</string>
@@ -22,4 +25,6 @@
     <string name="findABankOnTheMap">Найти Банк на Карте</string>
     <string name="goTooTheBanksWebsite">Зайти на сайт Банка</string>
     <string name="number_card">Number Card:</string>
+    <string name="history_search">История Поиска:</string>
+    <string name="error_number">Произошла ошибка, пожалуйста \n введите другой номер карты</string>
 </resources>

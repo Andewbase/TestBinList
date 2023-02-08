@@ -1,17 +1,17 @@
 package com.example.testcft.screen.main
 
-import android.content.Intent
-import android.net.Uri
+
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.testcft.R
+import com.example.testcft.data.cache.BankCardInfoEntity
 import com.example.testcft.databinding.FragmentMainBinding
+import com.example.testcft.screen.adapter.CacheAdapter
 import com.example.testcft.util.Resource
-import com.example.testcft.util.valideUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,69 +22,76 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val viewModel by viewModels<MainViewModel>()
 
+    private val adapter by lazy { CacheAdapter() }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding = FragmentMainBinding.bind(view)
 
-        viewModel.bankCardLiveData.observe(viewLifecycleOwner) { responce ->
+       initSearch()
 
-            when(responce){
-                is Resource.Success -> {
-                    binding.pagProgressBar.visibility = View.INVISIBLE
-                    responce.data?.let {
-                        binding.apply {
-                            tvSchemeDetail.text = it.scheme
-                            tvTypeDetail.text = it.type
-                            tvBankDetail.text = it.bank.name
-                            tvBrandDetail.text = it.brand
-                            tvUrlDetail.text = it.bank.url
-                            tvUrlDetail.setOnClickListener {
-                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(valideUrl(responce.data.bank.url))))
-                            }
-                            tvLengthDetail.text = it.number.length.toString()
-                            tvCountyDetail.text = it.country.name
-                            tvCountyDetail.setOnClickListener {
-                                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:${responce.data.country.latitude},${responce.data.country.longitude}?z=5")))
-                            }
-                            tvPhoneDetail.text = it.bank.phone
-                            tvPhoneDetail.setOnClickListener {
-                                startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:${responce.data.bank.phone}")))
-                            }
+        binding.btnBin.setOnClickListener {
+            val text = binding.eTBin.text.toString().filter { it.isDigit() }
+            viewModel.getBankCardInformation(text)
+
+            viewModel.bankCardLiveData.observe(viewLifecycleOwner){ response ->
+                when(response){
+                    is Resource.Success -> {
+                        binding.pagProgressBar.visibility = View.INVISIBLE
+                        response.data?.let {
+                            val action = MainFragmentDirections.actionMainFragmentToDetailCardInfoFragment(response.data.toCardDetail(text))
+                            findNavController().navigate(action)
                         }
                     }
-                }
-                is Resource.Error -> {
-                    binding.pagProgressBar.visibility = View.INVISIBLE
-                    responce.data?.let {
-                        Log.e("checkData", "MainFragment: error: ${it}")
+                    is Resource.Error -> {
+                        binding.pagProgressBar.visibility = View.INVISIBLE
+                        val action = MainFragmentDirections.actionMainFragmentToErrorFragmentDialog()
+                        findNavController().navigate(action)
+                        response.data?.let {}
+                    }
+                    is Resource.Loading -> {
+                        binding.pagProgressBar.visibility = View.VISIBLE
                     }
                 }
-                is Resource.Loading -> {
-                    binding.pagProgressBar.visibility = View.VISIBLE
-                }
+            }
+
+            binding.eTBin.text!!.clear()
+        }
+
+        viewModel.allCardInfo.observe(viewLifecycleOwner){
+            adapter.submitList(it.asReversed())
+            binding.apply {
+                rvCardHistory.adapter = adapter
+                rvCardHistory.setHasFixedSize(true)
             }
         }
 
-
-        binding.btnBin.setOnClickListener {
-
-            val text = binding.eTBin.text.toString()
-
-            viewModel.getBankCardInformation(text)
-        }
-
-
-
-        binding.btnRequest.setOnClickListener {
-            val action = MainFragmentDirections.actionMainFragmentToCacheFragment()
-            findNavController().navigate(action)
-        }
+        adapter.setOnClick(object: CacheAdapter.OnItemClick{
+            override fun onItemClick(cardDetail: BankCardInfoEntity) {
+                val action = MainFragmentDirections.actionMainFragmentToDetailCardInfoFragment(cardDetail.toCardDetail())
+                findNavController().navigate(action)
+            }
+        })
 
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         mBinding = null
+    }
+
+    private fun initSearch() = with(binding) {
+        eTBin.apply {
+            addTextChangedListener { editable ->
+                val currentText = editable.toString()
+                val length = currentText.length
+                if (length == 4) {
+                    this.setText(currentText.plus(" "))
+                    this.setSelection(length + 1)
+                }
+                btnBin.isEnabled = length > 8
+            }
+        }
     }
 }

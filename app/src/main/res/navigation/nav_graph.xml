@@ -11,25 +11,38 @@
         android:label="Search Bank Card"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_cacheFragment"
-            app:destination="@id/cacheFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/cacheFragment"
-        android:name="com.example.testcft.screen.cache.CacheFragment"
-        android:label="List Bank Card"
-        tools:layout="@layout/fragment_cache" >
+            android:id="@+id/action_mainFragment_to_detailCardInfoFragment"
+            app:destination="@id/detailCardInfoFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_cacheFragment_to_detailCardInfoFragment"
-            app:destination="@id/detailCardInfoFragment" />
+            android:id="@+id/action_mainFragment_to_errorFragmentDialog"
+            app:destination="@id/errorFragmentDialog"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment
+    <dialog
         android:id="@+id/detailCardInfoFragment"
-        android:name="com.example.testcft.screen.detailcardinfo.DetailCardInfoFragment"
+        android:name="com.example.testcft.screen.dialog.DetailCardInfoFragment"
         android:label="Detail Bank Card"
         tools:layout="@layout/fragment_detail_card_info" >
+        <action
+            android:id="@+id/action_detailCardInfoFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="cardDetail"
-            app:argType="com.example.testcft.data.cache.BankCardInfoEntity" />
-    </fragment>
+            app:argType="com.example.testcft.domain.CardDetail" />
+    </dialog>
+    <dialog
+        android:id="@+id/errorFragmentDialog"
+        android:name="com.example.testcft.screen.dialog.ErrorFragmentDialog"
+        android:label="ErrorFragmentDialog" >
+        <action
+            android:id="@+id/action_errorFragmentDialog_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true" />
+    </dialog>
 </navigation>

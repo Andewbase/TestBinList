@@ -1,106 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin"
+    app:cardCornerRadius="@dimen/default_corner_radius"
+    app:cardElevation="@dimen/card_elevation">
 
-
-    <TextView
-        android:id="@+id/tvBankName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/bank"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumb" />
-
-    <TextView
-        android:id="@+id/tvUrlBankName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/url"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBankName" />
-
-    <TextView
-        android:id="@+id/tvBankPhoneName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/phone_bank"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUrlBankName" />
-
-    <TextView
-        android:id="@+id/tvSetBankName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/whitespace"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/tvBankName"
-        app:layout_constraintTop_toBottomOf="@+id/tvNumberCard" />
-
-    <TextView
-        android:id="@+id/tvSetUrlBank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/whitespace"
-        app:layout_constraintStart_toEndOf="@+id/tvUrlBankName"
-        app:layout_constraintTop_toBottomOf="@+id/tvSetBankName" />
-
-    <TextView
-        android:id="@+id/tvSetPhoneBank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/whitespace"
-        app:layout_constraintStart_toEndOf="@+id/tvBankPhoneName"
-        app:layout_constraintTop_toBottomOf="@+id/tvSetUrlBank" />
-
-    <View
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvBankPhoneName" />
-
-    <TextView
-        android:id="@+id/tvNumberCard"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/whitespace"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toEndOf="@+id/tvNumb"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/pantone"
+        android:padding="@dimen/margin_16">
 
-    <TextView
-        android:id="@+id/tvNumb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/number_card"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/request_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLength="21"
+            android:textColor="@color/ivory"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4320 2300" />
+
+        <TextView
+            android:id="@+id/schema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ivory"
+            android:textSize="@dimen/header_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/request_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/request_number"
+            tools:text="visa" />
+
+        <TextView
+            android:id="@+id/currency_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_header"
+            android:textColor="@color/ivory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/request_number" />
+
+        <TextView
+            android:id="@+id/currency_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ivory"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/currency_header"
+            app:layout_constraintTop_toBottomOf="@+id/request_number"
+            tools:text="CAD" />
+
+        <TextView
+            android:id="@+id/country_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/country_header"
+            android:textColor="@color/ivory"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currency_header" />
+
+        <TextView
+            android:id="@+id/country_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ivory"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/currency_header"
+            app:layout_constraintTop_toBottomOf="@+id/currency_header"
+            tools:text="Canada" />
+
+        <TextView
+            android:id="@+id/country_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@+id/timestamp"
+            app:layout_constraintTop_toTopOf="@+id/country_text"/>
+            <!--tools:drawableTop="@drawable/ic_emoji"-->
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ivory"
+            android:textSize="@dimen/timestamp_text_size"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/country_header"
+            tools:text="2022.12.21 12:05:01" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

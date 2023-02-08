@@ -19,9 +19,7 @@ class MainViewModel @Inject constructor(
     private val _bankCardLiveData: MutableLiveData<Resource<BankCard>> = MutableLiveData()
     val bankCardLiveData: LiveData<Resource<BankCard>> = _bankCardLiveData
 
-    init {
-        getBankCardInformation(DEF_PATCH)
-    }
+    val allCardInfo = repository.getAllBankCardInfo()
 
     fun getBankCardInformation(number: String){
         viewModelScope.launch {
@@ -30,18 +28,12 @@ class MainViewModel @Inject constructor(
             if (response.isSuccessful){
                 response.body().let { bank ->
                     _bankCardLiveData.postValue(Resource.Success(bank))
-                    if (number != DEF_PATCH){
-                        repository.saveCardInfo(bank!!.toBankEntity(number))
-                    }
+                     repository.saveCardInfo(bank!!.toBankEntity(number))
                 }
             }else{
                 _bankCardLiveData.postValue(Resource.Error(message = response.message()))
             }
         }
-    }
-
-    companion object Const{
-        private const val DEF_PATCH = "00000000"
     }
 
 }

@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="5dp"
+    android:layout_margin="2dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/orange"
     tools:context=".screen.main.MainFragment"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="-140dp">
@@ -13,8 +14,10 @@
         android:id="@+id/ed_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/orange"
         app:boxCornerRadiusBottomStart="16dp"
         app:boxCornerRadiusTopEnd="16dp"
+        android:textColorHint="@color/ivory"
         app:expandedHintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,26 +29,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
-            android:hint="@string/edBin"
+            android:background="@color/pantone"
             android:gravity="center"
+            android:hint="@string/edBin"
+            android:textColor="@color/ivory"
             android:inputType="number"
-            android:textColor="@color/black"
-            android:maxLength="8"
+            android:maxLength="9"
             android:minHeight="48dp"
-            android:textColorHint="#757575"/>
-
-
+            android:textColorHint="#263238"/>
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/pantone"
+        android:enabled="false"
         android:text="@string/bin"
+        android:textColor="@color/ivory"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,222 +67,31 @@
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/detailsCardInfo"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cardHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginVertical="@dimen/default_margin"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRequest" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHistory"
+        tools:itemCount="3"
+        tools:listitem="@layout/cache_item" />
 
     <TextView
-        android:id="@+id/textScheme"
+        android:id="@+id/tvHistory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:textColor="@color/ivory"
+        android:textSize="16sp"
         android:layout_marginTop="10dp"
-        android:text="@string/scheme"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textType" />
-
-    <TextView
-        android:id="@+id/tvSchemeDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textScheme"
-        app:layout_constraintTop_toBottomOf="@+id/tvTypeDetail"
-        tools:text="Visa" />
-
-    <TextView
-        android:id="@+id/textBank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/bank"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInfo" />
-
-
-    <TextView
-        android:id="@+id/tvBankDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textBank"
-        app:layout_constraintTop_toBottomOf="@+id/textInfo"
-        tools:text="Jyske Bank, Hjørring" />
-
-    <TextView
-        android:id="@+id/tvTypeDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textType"
-        app:layout_constraintTop_toBottomOf="@+id/tvPhoneDetail"
-        tools:text="Debit" />
-
-    <TextView
-        android:id="@+id/textType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPhone" />
-
-
-    <TextView
-        android:id="@+id/tvBrandDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textBrand"
-        app:layout_constraintTop_toBottomOf="@+id/tvLengthDetail"
-        tools:text="Visa/Dankort" />
-
-    <TextView
-        android:id="@+id/textBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/brand"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLength" />
-
-    <TextView
-        android:id="@+id/textURL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/url"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCounty" />
-
-    <TextView
-        android:id="@+id/tvUrlDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/teal_200"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textURL"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountyDetail"
-        tools:text="www.jyskebank.dk" />
-
-    <TextView
-        android:id="@+id/textLength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/length"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textScheme" />
-
-    <TextView
-        android:id="@+id/tvLengthDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textLength"
-        app:layout_constraintTop_toBottomOf="@+id/tvSchemeDetail"
-        tools:text="Visa/Dankort" />
-
-    <TextView
-        android:id="@+id/tvCountyDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/teal_200"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textCounty"
-        app:layout_constraintTop_toBottomOf="@+id/tvBankDetail"
-        tools:text="Denmark" />
-
-    <TextView
-        android:id="@+id/textCounty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/country"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBank" />
-
-    <TextView
-        android:id="@+id/tvPhoneDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/teal_200"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textPhone"
-        app:layout_constraintTop_toBottomOf="@+id/tvUrlDetail"
-        tools:text="+4589893300" />
-
-    <TextView
-        android:id="@+id/textPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/phone_bank"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textURL" />
-
-    <Button
-        android:id="@+id/btnRequest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="@string/request"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBin"
+        android:text="@string/history_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

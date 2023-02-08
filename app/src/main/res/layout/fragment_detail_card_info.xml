@@ -1,225 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screen.detailcardinfo.DetailCardInfoFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/pantone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_20">
 
-    <TextView
-        android:id="@+id/textInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/detailsCardInfo"
-        android:textColor="@color/black"
-        android:textSize="24sp"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/back_button"
+        android:layout_width="@dimen/back_btn_size"
+        android:layout_height="@dimen/back_btn_size"
+        android:layout_margin="@dimen/default_margin"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:tint="@color/ivory"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textScheme"
+        android:id="@+id/details_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/scheme"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textType" />
-
-    <TextView
-        android:id="@+id/tvSchemeDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/detailsCardInfo"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textScheme"
-        app:layout_constraintTop_toBottomOf="@+id/tvTypeDetail"
-        tools:text="Visa" />
-
-    <TextView
-        android:id="@+id/textBank"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/bank"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:textSize="@dimen/header_text_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/back_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInfo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-
-    <TextView
-        android:id="@+id/tvBankDetail"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/base_details_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textBank"
-        app:layout_constraintTop_toBottomOf="@+id/textInfo"
-        tools:text="Jyske Bank, Hjørring" />
-
-    <TextView
-        android:id="@+id/tvTypeDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textType"
-        app:layout_constraintTop_toBottomOf="@+id/tvPhoneDetail"
-        tools:text="Debit" />
-
-    <TextView
-        android:id="@+id/textType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:layout_margin="@dimen/margin_16"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/back_button">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="309dp"
+            android:layout_height="wrap_content"
+            android:background="@color/orange"
+            android:padding="@dimen/default_margin">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_number"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/card_number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+            <!--android:src="@drawable/ic_card"-->
+
+            <TextView
+                android:id="@+id/card_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_16"
+                android:maxLength="21"
+                android:textColor="@color/ivory"
+                android:textSize="@dimen/details_number_text_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="4320 2300" />
+
+            <TextView
+                android:id="@+id/card_schema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textColor="@color/ivory"
+                android:textSize="@dimen/header_text_size"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/card_number"
+                app:layout_constraintTop_toBottomOf="@+id/card_number"
+                tools:text="visa" />
+
+            <TextView
+                android:id="@+id/card_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/type"
+                android:textColor="@color/ivory"
+                app:layout_constraintStart_toStartOf="@+id/card_number"
+                app:layout_constraintTop_toBottomOf="@+id/card_schema" />
+
+            <TextView
+                android:id="@+id/card_type_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/default_margin"
+                android:layout_weight="1"
+                android:textColor="@color/ivory"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/card_brand"
+                app:layout_constraintTop_toTopOf="@+id/card_type"
+                tools:text="debit" />
+
+            <TextView
+                android:id="@+id/card_brand"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/brand"
+                android:textColor="@color/ivory"
+                app:layout_constraintStart_toStartOf="@+id/card_type"
+                app:layout_constraintTop_toBottomOf="@+id/card_type" />
+
+            <TextView
+                android:id="@+id/card_brand_value"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/default_margin"
+                android:layout_weight="1"
+                android:textColor="@color/ivory"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/card_brand"
+                app:layout_constraintTop_toTopOf="@+id/card_brand"
+                tools:text="Platinum" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:id="@+id/tvBrandDetail"
+        android:id="@+id/emoji"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/detailsCardInfo"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textBrand"
-        app:layout_constraintTop_toBottomOf="@+id/tvLengthDetail"
-        tools:text="Visa/Dankort" />
+        app:layout_constraintEnd_toEndOf="@+id/tableLayout"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout" />
+<!--        tools:drawableStart="@drawable/ic_emoji"-->
 
-    <TextView
-        android:id="@+id/textBrand"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/brand"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLength" />
+        app:layout_constraintTop_toBottomOf="@+id/base_details_layout">
 
-    <TextView
-        android:id="@+id/textURL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/url"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBank" />
+        <TableRow android:id="@+id/details_country">
 
-    <TextView
-        android:id="@+id/tvUrlDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textURL"
-        app:layout_constraintTop_toBottomOf="@+id/tvBankDetail"
-        tools:text="www.jyskebank.dk" />
+            <TextView
+                android:text="@string/country_header"
+                android:textColor="@color/ivory"/>
 
-    <TextView
-        android:id="@+id/textLength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/length"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textScheme" />
+            <TextView
+                android:id="@+id/details_country_value"
+                android:textColor="@color/cyan"
+                tools:text="Canada" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/tvLengthDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/detailsCardInfo"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textLength"
-        app:layout_constraintTop_toBottomOf="@+id/tvSchemeDetail"
-        tools:text="Visa/Dankort" />
+        <TableRow android:id="@+id/details_currency">
 
-    <TextView
-        android:id="@+id/tvCountyDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textCounty"
-        app:layout_constraintTop_toBottomOf="@+id/tvBrandDetail"
-        tools:text="Yes" />
+            <TextView
+                android:text="@string/currency_header"
+                android:textColor="@color/ivory"/>
 
-    <TextView
-        android:id="@+id/textCounty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/country"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBrand" />
+            <TextView
+                android:id="@+id/details_currency_value"
+                android:textColor="@color/ivory"
+                tools:text="CAD" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/tvPhoneDetail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/type"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/textPhone"
-        app:layout_constraintTop_toBottomOf="@+id/tvUrlDetail"
-        tools:text="+4589893300" />
+        <TableRow
+            android:id="@+id/details_bank_name"
+            android:layout_marginTop="@dimen/margin_20">
 
-    <TextView
-        android:id="@+id/textPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="11dp"
-        android:text="@string/phone_bank"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textURL" />
+            <TextView
+                android:text="@string/nameBank"
+                android:textColor="@color/ivory"/>
+
+            <TextView
+                android:id="@+id/details_bank_name_value"
+                android:layout_marginStart="@dimen/default_margin"
+                android:layout_weight="1"
+                android:textColor="@color/ivory"
+                tools:text="CARD SERVICES FOR CREDIT UNIONS, INC." />
+        </TableRow>
+
+        <TableRow android:id="@+id/details_bank_city">
+
+            <TextView
+                android:text="@string/bank_city_header"
+                android:textColor="@color/ivory"/>
+
+            <TextView
+                android:id="@+id/details_bank_city_value"
+                android:layout_marginStart="@dimen/default_margin"
+                android:textColor="@color/ivory"
+                android:layout_weight="1"
+                tools:text="Quebec" />
+        </TableRow>
+
+        <TableRow android:id="@+id/details_bank_website">
+
+            <TextView
+                android:text="@string/url"
+                android:textColor="@color/ivory"/>
+
+            <TextView
+                android:id="@+id/details_bank_website_value"
+                android:textColor="@color/cyan"
+                tools:text="www.cscu.net" />
+        </TableRow>
+
+        <TableRow android:id="@+id/details_bank_phone1">
+
+            <TextView
+                android:text="@string/phone_bank"
+                android:textColor="@color/ivory"
+                />
+
+            <TextView
+                android:id="@+id/details_bank_phone_value1"
+                android:textColor="@color/cyan"
+                tools:text="(727) 536-6800" />
+        </TableRow>
+
+        <TableRow android:id="@+id/details_bank_phone2">
+
+            <TextView
+                android:text="@string/phone_bank2"
+                android:textColor="@color/ivory"/>
+
+            <TextView
+                android:id="@+id/details_bank_phone_value2"
+                android:textColor="@color/cyan"
+                tools:text="888-930-2728" />
+        </TableRow>
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorHint">@color/ivory</item>
+    </style>
+    
+    <style name="CardTextStyle">
+        <item name="android:textColor">@color/ivory</item>
+        <item name="android:textSize">24sp</item>
     </style>
 </resources>
