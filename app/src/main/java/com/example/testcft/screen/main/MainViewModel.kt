@@ -29,6 +29,7 @@ class MainViewModel @Inject constructor(
                 response.body().let { bank ->
                     _bankCardLiveData.postValue(Resource.Success(bank))
                      repository.saveCardInfo(bank!!.toBankEntity(number))
+                    repository.removeOldData()
                 }
             }else{
                 _bankCardLiveData.postValue(Resource.Error(message = response.message()))

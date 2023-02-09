@@ -25,4 +25,8 @@ class BankCardRepository @Inject constructor(
         bankCardInfoDao.saveBankCardInfoDao(bankCardInfoEntity)
     }
 
+   suspend fun removeOldData(){
+        bankCardInfoDao.removeOldData()
+    }
+
 }
