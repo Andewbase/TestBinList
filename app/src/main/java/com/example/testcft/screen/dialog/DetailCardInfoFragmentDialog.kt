@@ -8,13 +8,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.testcft.databinding.FragmentDetailCardInfoBinding
 import com.example.testcft.screen.base.BaseDialogFragment
+import com.example.testcft.util.Const.DASH_TEXT
 import com.example.testcft.util.valideUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DetailCardInfoFragment : BaseDialogFragment<FragmentDetailCardInfoBinding>(FragmentDetailCardInfoBinding::inflate){
+class DetailCardInfoFragmentDialog : BaseDialogFragment<FragmentDetailCardInfoBinding>(FragmentDetailCardInfoBinding::inflate){
 
-    private val safeArgs: DetailCardInfoFragmentArgs by navArgs()
+    private val safeArgs: DetailCardInfoFragmentDialogArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,7 +23,7 @@ class DetailCardInfoFragment : BaseDialogFragment<FragmentDetailCardInfoBinding>
         binding.apply {
 
             backButton.setOnClickListener {
-                val action = DetailCardInfoFragmentDirections.actionDetailCardInfoFragmentToMainFragment()
+                val action = DetailCardInfoFragmentDialogDirections.actionDetailCardInfoFragmentToMainFragment()
                 findNavController().navigate(action)
             }
 
@@ -37,17 +38,22 @@ class DetailCardInfoFragment : BaseDialogFragment<FragmentDetailCardInfoBinding>
                 startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("geo:${bankCardInfo.countryLatitude},${bankCardInfo.countryLongitude}?z=5")))
             }
             detailsCurrencyValue.text = bankCardInfo.currency
-            detailsBankNameValue.text = bankCardInfo.nameBank
-            detailsBankCityValue.text = bankCardInfo.cityBank
-            detailsBankWebsiteValue.text = bankCardInfo.urlBank
-            detailsBankWebsiteValue.setOnClickListener {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(valideUrl(bankCardInfo.urlBank))))
+            detailsBankNameValue.text = bankCardInfo.nameBank ?: DASH_TEXT
+            detailsBankCityValue.text = bankCardInfo.cityBank ?: DASH_TEXT
+            detailsBankWebsiteValue.text = bankCardInfo.urlBank ?: DASH_TEXT
+            if (bankCardInfo.urlBank.isNullOrEmpty()){
+                detailsBankWebsiteValue.isClickable = false
+            }else{
+                detailsBankWebsiteValue.setOnClickListener {
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(valideUrl(bankCardInfo.urlBank))))
+                }
             }
+
 
             when{
                 bankCardInfo.phoneBank.isNullOrEmpty() -> {
-                    detailsBankPhoneValue1.text = " - "
-                    detailsBankPhoneValue2.text = " - "
+                    detailsBankPhoneValue1.text = DASH_TEXT
+                    detailsBankPhoneValue2.text = DASH_TEXT
                 }
 
                 bankCardInfo.phoneBank.size == 1 -> {
@@ -75,7 +81,8 @@ class DetailCardInfoFragment : BaseDialogFragment<FragmentDetailCardInfoBinding>
 
         }
 
-
     }
+
+
 
 }

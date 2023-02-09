@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testcft.data.cache.BankCardInfoEntity
 import com.example.testcft.databinding.CacheItemBinding
+import com.example.testcft.util.Const.DASH_TEXT
 
 class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder>(DiffUtilCallbackCache) {
 
@@ -21,8 +22,8 @@ class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder
             with(binding){
                 requestNumber.text = cardDetail.number
                 schema.text = cardDetail.scheme
-                currencyText.text = cardDetail.currency
-                countryText.text = cardDetail.countryName
+                currencyText.text = cardDetail.currency ?: DASH_TEXT
+                countryText.text = cardDetail.countryName ?: DASH_TEXT
                 countryEmoji.text = cardDetail.countryEmoji
                 timestamp.text = cardDetail.timestamp
 

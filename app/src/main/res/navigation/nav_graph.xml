@@ -23,7 +23,7 @@
     </fragment>
     <dialog
         android:id="@+id/detailCardInfoFragment"
-        android:name="com.example.testcft.screen.dialog.DetailCardInfoFragment"
+        android:name="com.example.testcft.screen.dialog.DetailCardInfoFragmentDialog"
         android:label="Detail Bank Card"
         tools:layout="@layout/fragment_detail_card_info" >
         <action
