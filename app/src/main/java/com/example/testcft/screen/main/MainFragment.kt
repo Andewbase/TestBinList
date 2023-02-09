@@ -60,7 +60,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         }
 
         viewModel.allCardInfo.observe(viewLifecycleOwner){
-            adapter.submitList(it)
+            if (it.isEmpty()){
+                binding.tvEmpryList.visibility = View.VISIBLE
+            }else{
+                adapter.submitList(it)
+            }
             binding.apply {
                 rvCardHistory.adapter = adapter
                 rvCardHistory.setHasFixedSize(true)

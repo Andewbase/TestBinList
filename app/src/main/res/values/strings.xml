@@ -27,4 +27,5 @@
     <string name="number_card">Number Card:</string>
     <string name="history_search">История Поиска:</string>
     <string name="error_number">Произошла ошибка, пожалуйста \n введите другой номер карты</string>
+    <string name="history_is_empty">Список запросов пуст</string>
 </resources>

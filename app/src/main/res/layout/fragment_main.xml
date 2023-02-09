@@ -93,5 +93,22 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBin"
         android:text="@string/history_search" />
 
+    <TextView
+        android:id="@+id/tvEmpryList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/default_margin"
+        android:text="@string/history_is_empty"
+        android:textColor="@color/ivory"
+        android:textSize="@dimen/margin_20"
+        app:drawableTopCompat="@drawable/baseline_credit_card_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_cardHistory"
+        app:layout_constraintEnd_toEndOf="@+id/rv_cardHistory"
+        app:layout_constraintStart_toStartOf="@+id/rv_cardHistory"
+        app:layout_constraintTop_toTopOf="@+id/rv_cardHistory"
+        tools:ignore="SpUsage,TextSizeCheck"
+        tools:visibility="visible" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
