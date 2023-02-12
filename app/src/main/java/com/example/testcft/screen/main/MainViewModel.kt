@@ -37,11 +37,11 @@ class MainViewModel @Inject constructor(
         }
     }
 
-   suspend fun saveBankCard(bankCard: BankCard, number: String) {
+   private suspend fun saveBankCard(bankCard: BankCard, number: String) {
         repository.saveCardInfo(bankCard.toBankEntity(number))
     }
 
-   suspend fun removeOldData() {
+   private suspend fun removeOldData() {
         repository.removeOldData()
     }
 
