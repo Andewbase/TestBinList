@@ -52,7 +52,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCharterDao(appDataBase: BankCardInfoDataBase): BankCardInfoDao {
+    fun provideBankDao(appDataBase: BankCardInfoDataBase): BankCardInfoDao {
         return appDataBase.getBankCardInfoDao()
     }
 
