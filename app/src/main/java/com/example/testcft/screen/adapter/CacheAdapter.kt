@@ -11,11 +11,11 @@ import com.example.testcft.util.Const.DASH_TEXT
 
 class CacheAdapter: ListAdapter<BankCardInfoEntity, CacheAdapter.CacheViewHolder>(DiffUtilCallbackCache) {
 
-    private var onItemClick: OnItemClick? = null
+        private var onItemClick: OnItemClick? = null
 
-    fun setOnClick(onItemClick: OnItemClick){
-        this.onItemClick = onItemClick
-    }
+        fun setOnClick(onItemClick: OnItemClick){
+            this.onItemClick = onItemClick
+        }
 
     inner class CacheViewHolder(private val binding: CacheItemBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(cardDetail: BankCardInfoEntity){

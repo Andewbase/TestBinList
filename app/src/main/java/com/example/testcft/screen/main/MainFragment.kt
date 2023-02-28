@@ -59,17 +59,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             binding.eTBin.text!!.clear()
         }
 
+        binding.rvCardHistory.adapter = adapter
+
         viewModel.allCardInfo.observe(viewLifecycleOwner){
             if (it.isEmpty()){
                 binding.tvEmpryList.visibility = View.VISIBLE
             }else{
                 adapter.submitList(it)
             }
-            binding.apply {
-                rvCardHistory.adapter = adapter
-                rvCardHistory.setHasFixedSize(true)
-            }
         }
+
 
         adapter.setOnClick(object: CacheAdapter.OnItemClick{
             override fun onItemClick(cardDetail: BankCardInfoEntity) {
