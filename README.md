@@ -1,4 +1,4 @@
-# **bold** *italic* BinList-Compouse
+# BinList-Compouse
 UI - Compouse
 Pattern - MVI
 Network - Retrofit
