@@ -1,5 +1,5 @@
-# BinList-Compouse
-UI - Compouse                                 
+# BinList-Compose
+UI - Compose                                 
 Pattern - MVI                                 
 Network - Retrofit                                 
 Cache - Room                                 
