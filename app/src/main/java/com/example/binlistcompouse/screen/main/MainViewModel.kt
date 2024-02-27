@@ -64,6 +64,7 @@ class MainViewModel @Inject constructor(
                 send(MainEvent.Error(error = R.string.limit_error))
             }catch (e: ThereIsNoBankCard){
                 send(MainEvent.Error(error = R.string.thereisnobankcard_error))
+                send(MainEvent.ClearTextValue())
             } catch (e: ConnectionException){
                 send(MainEvent.Error(error = R.string.connection_error))
             } catch (e: StorageException){
