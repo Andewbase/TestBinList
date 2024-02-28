@@ -1,4 +1,4 @@
-# BinList-Compose
+# **BinList - Compose**
 - **UI:** Compose
 - **Pattern:** MVI
 - **Network:** Retrofit
