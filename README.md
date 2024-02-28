@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">BinList - Compose</h1>
+<h1 align="center">BinList - Compose</h1>
 
 - **UI:** Compose
 - **Pattern:** MVI
