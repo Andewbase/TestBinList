@@ -28,10 +28,10 @@ interface BankCardRepository {
 
         override suspend fun saveCard(number: String){
 
-                val bankCard = retrofitBankSource.getBankInformation(number)
-                roomBankSource.removeOldData()
+            val bankCard = retrofitBankSource.getBankInformation(number)
+            roomBankSource.removeOldData()
 
-                roomBankSource.saveBankCardInfoDao(mapper.bankCardToBankCardInfoEntity(number, bankCard))
+            roomBankSource.saveBankCardInfoDao(mapper.bankCardToBankCardInfoEntity(number, bankCard))
         }
 
         override fun getCards(): Flow<List<BankCardItem>> {
