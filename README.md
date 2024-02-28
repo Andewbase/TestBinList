@@ -3,5 +3,5 @@
 - **Pattern:** MVI
 - **Network:** Retrofit
 - **Cache:** Room
-- **Dependency injectio:** Hilt       
+- **Dependency injection:** Hilt       
 - **Navigation:** Jetpack Compose Navigation
