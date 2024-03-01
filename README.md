@@ -1,6 +1,6 @@
 <h1 align="center">BinList - Compose</h1>
-|**Succes:**|**Erorr:**|
-|![](https://github.com/Andewbase/TestBinList/blob/compose/succes.gif)|![](https://github.com/Andewbase/TestBinList/blob/compose/erorr.gif)|
+|**Succes:**|**Erorr:**|**Preview**|
+|![](https://github.com/Andewbase/TestBinList/blob/compose/succes.gif)|![](https://github.com/Andewbase/TestBinList/blob/compose/erorr.gif)|Preview|
 
 - **UI:** Compose
 - **Pattern:** MVI
