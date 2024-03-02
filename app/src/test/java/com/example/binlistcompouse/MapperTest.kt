@@ -2,6 +2,7 @@ package com.example.binlistcompouse
 
 import com.example.binlistcompouse.Const.NO_INFORMATION_AVAILABLE
 import com.example.binlistcompouse.data.Mapper
+import com.example.binlistcompouse.data.MapperActions
 import com.example.binlistcompouse.data.cache.entity.BankCardInfoEntity
 import com.example.binlistcompouse.data.network.bank.entities.Bank
 import com.example.binlistcompouse.data.network.bank.entities.BankCard
@@ -16,7 +17,8 @@ import java.text.SimpleDateFormat
 
 class MapperTest {
 
-    private val mapper  = Mapper.Base()
+    private val mapperActions = MapperActions.Base()
+    private val mapper  = Mapper.Base(mapperActions)
 
     @Test
     fun test_bankCardInfoEntityToBankCardItem(){
@@ -53,7 +55,7 @@ class MapperTest {
 
     @Test
     fun test_checkValue(){
-        val result = mapper.checkValue(null)
+        val result = mapperActions.checkValue(null)
         val expected = NO_INFORMATION_AVAILABLE
 
         assertEquals(result, expected)
@@ -61,7 +63,7 @@ class MapperTest {
 
     @Test
     fun test_validUrl(){
-        val result = mapper.validUrl(NO_INFORMATION_AVAILABLE)
+        val result = mapperActions.validUrl(NO_INFORMATION_AVAILABLE)
         val expected = URL_EXPECTED
 
         assertEquals(result, expected)
@@ -69,7 +71,7 @@ class MapperTest {
 
     @Test
     fun test_checkPhoneNumber(){
-        val result = mapper.checkPhoneNumber(null)
+        val result = mapperActions.checkPhoneNumber(null)
         val expected = listOf(NO_INFORMATION_AVAILABLE, NO_INFORMATION_AVAILABLE)
 
         assertEquals(result, expected)
@@ -77,7 +79,7 @@ class MapperTest {
 
     @Test
     fun test_phoneNumberToList(){
-        val result = mapper.phoneNumberToList(PHONE_NUMBER)
+        val result = mapperActions.phoneNumberToList(PHONE_NUMBER)
         val expected = listOf(PHONE_NUMBER_EXPECTED, PHONE_NUMBER_EXPECTED)
 
         assertEquals(result, expected)
