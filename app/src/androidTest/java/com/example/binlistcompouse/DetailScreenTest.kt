@@ -1,8 +1,13 @@
 package com.example.binlistcompouse
 
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.performClick
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ApplicationProvider
+import com.example.binlistcompouse.Const.TEXT_CITY_TEST
+import com.example.binlistcompouse.Const.TEXT_PHONE2_TEST
+import com.example.binlistcompouse.Const.TEXT_PHONE_TEST
 import com.example.binlistcompouse.screen.detail.DetailScreen
 import com.example.binlistcompouse.screen.detail.DetailState
 import org.junit.Rule
@@ -14,7 +19,7 @@ class DetailScreenTest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun text_field_test(){
+    fun text_city_test(){
 
         val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
 
@@ -25,6 +30,35 @@ class DetailScreenTest {
             )
         }
 
+        composeTestRule.onNodeWithTag(TEXT_CITY_TEST).performClick()
+    }
+
+    @Test
+    fun text_phone_test(){
+        val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
+
+        composeTestRule.setContent {
+            DetailScreen(
+                detailState = DetailState(),
+                navController = navController
+            )
+        }
+
+        composeTestRule.onNodeWithTag(TEXT_PHONE_TEST).performClick()
+    }
+
+    @Test
+    fun text_phone2_test(){
+        val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
+
+        composeTestRule.setContent {
+            DetailScreen(
+                detailState = DetailState(),
+                navController = navController
+            )
+        }
+
+        composeTestRule.onNodeWithTag(TEXT_PHONE2_TEST).performClick()
     }
 
 
