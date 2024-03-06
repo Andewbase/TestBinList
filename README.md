@@ -1,6 +1,6 @@
 <h1 align="center">BinList - Compose</h1>
 
-|**Succes:**|**Erorr:**|
+|**Succes:**|**Error:**|
 |:-:|:-:|
 | ![](https://github.com/Andewbase/TestBinList/blob/compose/succes.gif) | ![](https://github.com/Andewbase/TestBinList/blob/compose/erorr.gif) |
 
