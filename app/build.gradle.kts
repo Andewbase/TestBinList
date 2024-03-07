@@ -51,6 +51,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes = true
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -96,6 +100,3 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
 }
 
-kapt {
-    correctErrorTypes = true
-}
