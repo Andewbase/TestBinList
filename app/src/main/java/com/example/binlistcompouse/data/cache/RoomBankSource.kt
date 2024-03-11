@@ -1,6 +1,6 @@
 package com.example.binlistcompouse.data.cache
 
-import com.example.binlistcompouse.data.cache.entity.BankCardInfoEntity
+import com.example.binlistcompouse.data.cache.entity.BankCardDBO
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -8,13 +8,13 @@ import javax.inject.Singleton
 interface RoomBankSource {
 
 
-    fun getAllBankCardInfo(): Flow<List<BankCardInfoEntity>>
+    fun getAllBankCardInfo(): Flow<List<BankCardDBO>>
 
-    suspend fun getById(cardId: Long): BankCardInfoEntity
+    suspend fun getById(cardId: Long): BankCardDBO
 
-    suspend fun getNumber(number: String): BankCardInfoEntity
+    suspend fun getNumber(number: String): BankCardDBO
 
-    suspend fun saveBankCardInfoDao(bankCardInfoEntity: BankCardInfoEntity)
+    suspend fun saveBankCardInfoDao(bankCardDBO: BankCardDBO)
 
     suspend fun removeOldData()
 
@@ -23,20 +23,20 @@ interface RoomBankSource {
         private val bankCardInfoDao: BankCardInfoDao
         ) : RoomBankSource{
 
-        override fun getAllBankCardInfo(): Flow<List<BankCardInfoEntity>> {
+        override fun getAllBankCardInfo(): Flow<List<BankCardDBO>> {
            return bankCardInfoDao.getAllBankCardInfo()
         }
 
-        override suspend fun getById(cardId: Long): BankCardInfoEntity {
+        override suspend fun getById(cardId: Long): BankCardDBO {
             return bankCardInfoDao.getById(cardId)
         }
 
-        override suspend fun getNumber(number: String): BankCardInfoEntity {
+        override suspend fun getNumber(number: String): BankCardDBO {
             return bankCardInfoDao.getNumber(number)
         }
 
-        override suspend fun saveBankCardInfoDao(bankCardInfoEntity: BankCardInfoEntity)  = wrapSQLiteException{
-            bankCardInfoDao.saveBankCardInfoDao(bankCardInfoEntity)
+        override suspend fun saveBankCardInfoDao(bankCardDBO: BankCardDBO)  = wrapSQLiteException{
+            bankCardInfoDao.saveBankCardInfoDao(bankCardDBO)
         }
 
         override suspend fun removeOldData() {

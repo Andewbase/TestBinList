@@ -7,15 +7,14 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.binlistcompouse.Const.SEPARATOR
 import com.example.binlistcompouse.data.cache.BankCardInfoDao
 import com.example.binlistcompouse.data.cache.BankCardInfoDataBase
-import com.example.binlistcompouse.data.cache.entity.BankCardInfoEntity
+import com.example.binlistcompouse.data.cache.entity.BankCardDBO
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.assertEquals
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import kotlin.jvm.Throws
 
 
 @RunWith(AndroidJUnit4::class)
@@ -42,16 +41,16 @@ class RoomTest {
 
     @Test
     fun test_add() = runBlocking{
-        assertEquals(emptyList<BankCardInfoEntity>(), dao.getAllBankCardInfo().first())
+        assertEquals(emptyList<BankCardDBO>(), dao.getAllBankCardInfo().first())
 
-        dao.saveBankCardInfoDao(bankCardInfoEntity = cache)
+        dao.saveBankCardInfoDao(bankCardDBO = cache)
         assertEquals(listOf(cache), dao.getAllBankCardInfo().first())
 
         assertEquals(cache, dao.getById(ID))
         assertEquals(cache, dao.getNumber(SEPARATOR))
     }
 
-    private val cache = BankCardInfoEntity(
+    private val cache = BankCardDBO(
         ID,
         SEPARATOR,
         SEPARATOR,

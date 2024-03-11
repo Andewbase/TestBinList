@@ -110,7 +110,7 @@ navController: NavController
                                horizontalArrangement = Arrangement.Center
                            ) {
                                Text(
-                                   text = detailState.cardDetail.number,
+                                   text = detailState.cardDetailUI.number,
                                    fontSize = 25.sp
                                )
                            }
@@ -121,7 +121,7 @@ navController: NavController
                                horizontalArrangement = Arrangement.End
                            ) {
                                Text(
-                                   text = detailState.cardDetail.scheme,
+                                   text = detailState.cardDetailUI.scheme,
                                    fontSize = 20.sp
                                )
                            }
@@ -135,7 +135,7 @@ navController: NavController
                                    text = stringResource(id = R.string.type)
                                )
                                Text(
-                                   text = detailState.cardDetail.type,
+                                   text = detailState.cardDetailUI.type,
                                    modifier = Modifier.padding(start = dimen5dp)
                                )
                            }
@@ -149,7 +149,7 @@ navController: NavController
                                    text = stringResource(id = R.string.brand)
                                )
                                Text(
-                                   text = detailState.cardDetail.brand,
+                                   text = detailState.cardDetailUI.brand,
                                    modifier = Modifier.padding(start = dimen5dp)
                                )
                            }
@@ -159,7 +159,7 @@ navController: NavController
 
                    RowDetailExample(
                        id = R.string.country_header,
-                       text = detailState.cardDetail.countryName,
+                       text = detailState.cardDetailUI.countryName,
                        modifier = Modifier
                            .clickable(
                                enabled = detailState.countryNameEnabled
@@ -167,7 +167,7 @@ navController: NavController
                                    Intent(
                                        Intent.ACTION_VIEW,
                                        Uri.parse(
-                                           "geo:${detailState.cardDetail.countryLatitude},${detailState.cardDetail.countryLongitude}?z=5"
+                                           "geo:${detailState.cardDetailUI.countryLatitude},${detailState.cardDetailUI.countryLongitude}?z=5"
                                        )
                                    ).also {
                                        context.startActivity(it)
@@ -179,31 +179,31 @@ navController: NavController
 
                     RowDetailExample(
                         id = R.string.currency_header,
-                        text = detailState.cardDetail.currency
+                        text = detailState.cardDetailUI.currency
                     )
 
                    RowDetailExample(
                        id = R.string.nameBank,
-                       text = detailState.cardDetail.nameBank
+                       text = detailState.cardDetailUI.nameBank
                    )
 
 
 
                    RowDetailExample(
                        id = R.string.bank_city_header,
-                       text = detailState.cardDetail.cityBank
+                       text = detailState.cardDetailUI.cityBank
                    )
 
                    RowDetailExample(
                        id = R.string.url,
-                       text = detailState.cardDetail.urlBank,
+                       text = detailState.cardDetailUI.urlBank,
                        modifier = Modifier.clickable(
                            enabled = detailState.urlBankEnabled
                        ) {
                            Intent(
                                Intent.ACTION_VIEW,
                                Uri.parse(
-                                   detailState.cardDetail.urlBank
+                                   detailState.cardDetailUI.urlBank
                                )
                            ).also {
                                context.startActivity(it)
@@ -215,14 +215,14 @@ navController: NavController
 
                    RowDetailExample(
                        id = R.string.phone_bank,
-                       text = detailState.cardDetail.phoneBank1,
+                       text = detailState.cardDetailUI.phoneBank1,
                        modifier = Modifier.clickable(
                            enabled = detailState.phoneBankEnabled
                        ) {
                            Intent(
                                Intent.ACTION_DIAL,
                                Uri.parse(
-                                   "tel:${detailState.cardDetail.phoneBank1}"
+                                   "tel:${detailState.cardDetailUI.phoneBank1}"
                                )
                            ).also {
                                context.startActivity(it)
@@ -234,14 +234,14 @@ navController: NavController
 
                    RowDetailExample(
                        id = R.string.phone_bank2,
-                       text = detailState.cardDetail.phoneBank2,
+                       text = detailState.cardDetailUI.phoneBank2,
                        modifier = Modifier.clickable(
                            enabled = detailState.phoneBankTwoEnabled
                        ) {
                            Intent(
                                Intent.ACTION_DIAL,
                                Uri.parse(
-                                   "tel:${detailState.cardDetail.phoneBank2}"
+                                   "tel:${detailState.cardDetailUI.phoneBank2}"
                                )
                            ).also {
                                context.startActivity(it)

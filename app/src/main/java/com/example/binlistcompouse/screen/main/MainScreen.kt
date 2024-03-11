@@ -61,7 +61,7 @@ import com.example.binlistcompouse.Const.SCHEME
 import com.example.binlistcompouse.Const.SEARCH_CARD
 import com.example.binlistcompouse.Const.TWO_INT
 import com.example.binlistcompouse.R
-import com.example.binlistcompouse.domain.entity.BankCardItem
+import com.example.binlistcompouse.domain.entity.BankCardItemUI
 import com.example.binlistcompouse.screen.BankCardScreen
 import com.example.binlistcompouse.ui.theme.CFTTest2Theme
 import com.example.binlistcompouse.util.creditCard
@@ -70,7 +70,7 @@ import com.example.binlistcompouse.util.creditCard
 fun MainScreen(
     mainState: MainState,
     send: (MainEvent) -> Unit,
-    listCard: List<BankCardItem>,
+    listCard: List<BankCardItemUI>,
     navController: NavController
 ){
 
@@ -227,7 +227,7 @@ fun TextFieldExample(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun LazyColumnExample(bankCards: List<BankCardItem>, navController: NavController){
+fun LazyColumnExample(bankCards: List<BankCardItemUI>, navController: NavController){
 
     val dimen10dp = dimensionResource(id = R.dimen.margin_10)
 
@@ -342,7 +342,7 @@ fun HomeScreenPreview() {
             mainState = MainState(),
             send = {},
             listCard = List(TWO_INT){ index ->
-                BankCardItem(
+                BankCardItemUI(
                     index.toLong(),
                     NUMBER_CARD,
                     NAME_BANK,

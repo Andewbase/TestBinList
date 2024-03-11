@@ -3,17 +3,17 @@ package com.example.binlistcompouse
 import com.example.binlistcompouse.Const.NO_INFORMATION_AVAILABLE
 import com.example.binlistcompouse.data.Mapper
 import com.example.binlistcompouse.data.MapperActions
-import com.example.binlistcompouse.data.cache.entity.BankCardInfoEntity
+import com.example.binlistcompouse.data.cache.entity.BankCardDBO
 import com.example.binlistcompouse.data.network.bank.entities.Bank
 import com.example.binlistcompouse.data.network.bank.entities.BankCard
 import com.example.binlistcompouse.data.network.bank.entities.Country
 import com.example.binlistcompouse.data.network.bank.entities.Number
-import com.example.binlistcompouse.domain.entity.BankCardItem
-import com.example.binlistcompouse.domain.entity.CardDetail
+import com.example.binlistcompouse.domain.entity.BankCardItemUI
+import com.example.binlistcompouse.domain.entity.CardDetailUI
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import java.util.Date
 import java.text.SimpleDateFormat
+import java.util.Date
 
 class MapperTest {
 
@@ -22,8 +22,8 @@ class MapperTest {
 
     @Test
     fun test_bankCardInfoEntityToBankCardItem(){
-        val result = mapper.bankCardInfoEntityToBankCardItem(bankCardInfoEntity = bankCardInfoEntity)
-        val expected = bankCardItem
+        val result = mapper.bankCardInfoEntityToBankCardItem(bankCardDBO = bankCardDBO)
+        val expected = bankCardItemUI
 
         assertEquals(expected, result)
     }
@@ -31,15 +31,15 @@ class MapperTest {
     @Test
     fun test_bankCardToBankCardInfoEntity(){
         val result = mapper.bankCardToBankCardInfoEntity(NUMBER, bankCard)
-        val expected = bankCardInfoEntity
+        val expected = bankCardDBO
 
         assertEquals(result, expected)
     }
 
     @Test
     fun test_bankCardInfoEntityToCardDetail(){
-        val result = mapper.bankCardInfoEntityToCardDetail(bankCardInfoEntity = bankCardInfoEntity)
-        val expected = cardDetail
+        val result = mapper.bankCardInfoEntityToCardDetail(bankCardDBO = bankCardDBO)
+        val expected = cardDetailUI
 
         assertEquals(result, expected)
     }
@@ -88,7 +88,7 @@ class MapperTest {
     private val currentDate = Date()
     private val simpleDataFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
 
-    private val bankCardInfoEntity = BankCardInfoEntity(
+    private val bankCardDBO = BankCardDBO(
         id = ID,
         number = NUMBER_EXPECTED,
         scheme = NO_INFORMATION_AVAILABLE,
@@ -107,7 +107,7 @@ class MapperTest {
         timestamp = simpleDataFormat.format(currentDate)
     )
 
-    private val bankCardItem = BankCardItem(
+    private val bankCardItemUI = BankCardItemUI(
         id = ID,
         number = NUMBER_EXPECTED,
         nameBank = NO_INFORMATION_AVAILABLE,
@@ -115,7 +115,7 @@ class MapperTest {
         countryEmoji = NO_INFORMATION_AVAILABLE
     )
 
-    private val cardDetail = CardDetail(
+    private val cardDetailUI = CardDetailUI(
         number = NUMBER_EXPECTED,
         scheme = NO_INFORMATION_AVAILABLE,
         type = NO_INFORMATION_AVAILABLE,

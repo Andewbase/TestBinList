@@ -1,6 +1,6 @@
 package com.example.binlistcompouse.domain.entity
 
-data class BankCardItem(
+data class BankCardItemUI(
     val id: Long,
     val number: String,
     val nameBank: String,

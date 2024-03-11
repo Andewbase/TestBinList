@@ -33,8 +33,6 @@ object Const {
     const val SCHEME = "Visa"
     const val COUNTRY_EMOJI = "\uD83C\uDDE9\uD83C\uDDF0"
 
-    const val BASE_URL = "https://lookup.binlist.net"
-
     const val TEXT_CITY_TEST = "CounterTags:TEXT_CITY"
     const val TEXT_URL_TEST = "CounterTags:TEXT_URL"
     const val TEXT_PHONE_TEST = "CounterTags:TEXT_PHONE"

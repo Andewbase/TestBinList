@@ -1,6 +1,5 @@
 package com.example.binlistcompouse
 
-import com.example.binlistcompouse.Const.BASE_URL
 import com.example.binlistcompouse.data.network.bank.BankApi
 import com.example.binlistcompouse.data.network.bank.entities.Bank
 import com.example.binlistcompouse.data.network.bank.entities.BankCard
@@ -19,7 +18,7 @@ class ApiTest {
     fun test () = runBlocking {
         val moshi = Moshi.Builder().build()
         val retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BIN_LIST_API_BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
 

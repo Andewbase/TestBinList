@@ -1,6 +1,6 @@
 package com.example.binlistcompouse.data.network.di
 
-import com.example.binlistcompouse.Const.BASE_URL
+import com.example.binlistcompouse.BuildConfig
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -41,7 +41,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(BuildConfig.BIN_LIST_API_BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(client)
             .build()

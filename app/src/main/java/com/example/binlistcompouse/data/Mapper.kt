@@ -11,10 +11,10 @@ import com.example.binlistcompouse.Const.SIXTEEN_INT
 import com.example.binlistcompouse.Const.STAR
 import com.example.binlistcompouse.Const.ZERO_INT
 import com.example.binlistcompouse.Const.ZERO_LONG
-import com.example.binlistcompouse.data.cache.entity.BankCardInfoEntity
+import com.example.binlistcompouse.data.cache.entity.BankCardDBO
 import com.example.binlistcompouse.data.network.bank.entities.BankCard
-import com.example.binlistcompouse.domain.entity.BankCardItem
-import com.example.binlistcompouse.domain.entity.CardDetail
+import com.example.binlistcompouse.domain.entity.BankCardItemUI
+import com.example.binlistcompouse.domain.entity.CardDetailUI
 import java.text.SimpleDateFormat
 import java.util.Date
 import javax.inject.Inject
@@ -22,11 +22,11 @@ import javax.inject.Inject
 
 interface Mapper {
 
-    fun bankCardInfoEntityToBankCardItem (bankCardInfoEntity: BankCardInfoEntity): BankCardItem
+    fun bankCardInfoEntityToBankCardItem (bankCardDBO: BankCardDBO): BankCardItemUI
 
-    fun bankCardToBankCardInfoEntity (number: String, bankCard: BankCard): BankCardInfoEntity
+    fun bankCardToBankCardInfoEntity (number: String, bankCard: BankCard): BankCardDBO
 
-    fun bankCardInfoEntityToCardDetail (bankCardInfoEntity: BankCardInfoEntity): CardDetail
+    fun bankCardInfoEntityToCardDetail (bankCardDBO: BankCardDBO): CardDetailUI
 
     fun convertNumber(number: String): String
 
@@ -34,26 +34,26 @@ interface Mapper {
         private val mapperActions: MapperActions.Base
     ): Mapper{
 
-        override fun bankCardInfoEntityToBankCardItem(bankCardInfoEntity: BankCardInfoEntity): BankCardItem {
+        override fun bankCardInfoEntityToBankCardItem(bankCardDBO: BankCardDBO): BankCardItemUI {
 
-            return BankCardItem(
-                id = bankCardInfoEntity.id,
-                number = bankCardInfoEntity.number,
-                nameBank = bankCardInfoEntity.nameBank,
-                scheme = bankCardInfoEntity.scheme,
-                countryEmoji = bankCardInfoEntity.countryEmoji
+            return BankCardItemUI(
+                id = bankCardDBO.id,
+                number = bankCardDBO.number,
+                nameBank = bankCardDBO.nameBank,
+                scheme = bankCardDBO.scheme,
+                countryEmoji = bankCardDBO.countryEmoji
             )
         }
 
         @SuppressLint("SimpleDateFormat")
-        override  fun bankCardToBankCardInfoEntity (number: String, bankCard: BankCard): BankCardInfoEntity {
+        override  fun bankCardToBankCardInfoEntity (number: String, bankCard: BankCard): BankCardDBO {
 
             val currentDate = Date()
             val simpleDataFormat = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
 
             val phoneNumber = mapperActions.checkPhoneNumber(bankCard.bank.phone)
 
-            return BankCardInfoEntity(
+            return BankCardDBO(
                 id = ZERO_LONG, // SQLite generates identifier automatically if ID = 0
                 number = convertNumber(number),
                 scheme = mapperActions.checkValue(bankCard.scheme),
@@ -73,23 +73,23 @@ interface Mapper {
             )
         }
 
-        override fun bankCardInfoEntityToCardDetail(bankCardInfoEntity: BankCardInfoEntity): CardDetail {
+        override fun bankCardInfoEntityToCardDetail(bankCardDBO: BankCardDBO): CardDetailUI {
 
-            return CardDetail(
-                number = bankCardInfoEntity.number,
-                scheme = bankCardInfoEntity.scheme,
-                type = bankCardInfoEntity.type,
-                brand = bankCardInfoEntity.brand,
-                countryName = bankCardInfoEntity.countryName,
-                countryEmoji = bankCardInfoEntity.countryEmoji,
-                currency = bankCardInfoEntity.currency,
-                countryLatitude = bankCardInfoEntity.countryLatitude,
-                countryLongitude = bankCardInfoEntity.countryLongitude,
-                nameBank = bankCardInfoEntity.nameBank,
-                urlBank = bankCardInfoEntity.urlBank,
-                cityBank = bankCardInfoEntity.cityBank,
-                phoneBank1 = bankCardInfoEntity.phoneBank1,
-                phoneBank2 = bankCardInfoEntity.phoneBank2
+            return CardDetailUI(
+                number = bankCardDBO.number,
+                scheme = bankCardDBO.scheme,
+                type = bankCardDBO.type,
+                brand = bankCardDBO.brand,
+                countryName = bankCardDBO.countryName,
+                countryEmoji = bankCardDBO.countryEmoji,
+                currency = bankCardDBO.currency,
+                countryLatitude = bankCardDBO.countryLatitude,
+                countryLongitude = bankCardDBO.countryLongitude,
+                nameBank = bankCardDBO.nameBank,
+                urlBank = bankCardDBO.urlBank,
+                cityBank = bankCardDBO.cityBank,
+                phoneBank1 = bankCardDBO.phoneBank1,
+                phoneBank2 = bankCardDBO.phoneBank2
             )
 
         }

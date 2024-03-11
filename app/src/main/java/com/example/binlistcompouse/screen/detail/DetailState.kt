@@ -1,10 +1,10 @@
 package com.example.binlistcompouse.screen.detail
 
 import com.example.binlistcompouse.Const.SEPARATOR
-import com.example.binlistcompouse.domain.entity.CardDetail
+import com.example.binlistcompouse.domain.entity.CardDetailUI
 
 data class DetailState(
-    val cardDetail: CardDetail = CardDetail(
+    val cardDetailUI: CardDetailUI = CardDetailUI(
         SEPARATOR,
         SEPARATOR,
         SEPARATOR,

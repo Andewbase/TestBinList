@@ -6,7 +6,7 @@ import com.example.binlistcompouse.data.BankCardRepository
 import com.example.binlistcompouse.data.network.DeleteOrAddOneCharacterException
 import com.example.binlistcompouse.data.network.EmptyException
 import com.example.binlistcompouse.data.network.NotTheAppropriateSizeException
-import com.example.binlistcompouse.domain.entity.BankCardItem
+import com.example.binlistcompouse.domain.entity.BankCardItemUI
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -21,7 +21,7 @@ class MainUseCase @Inject constructor(private val bankCardRepository: BankCardRe
         bankCardRepository.saveCard(number)
     }
 
-    fun getCards(): Flow<List<BankCardItem>>{
+    fun getCards(): Flow<List<BankCardItemUI>>{
 
         return bankCardRepository.getCards()
 

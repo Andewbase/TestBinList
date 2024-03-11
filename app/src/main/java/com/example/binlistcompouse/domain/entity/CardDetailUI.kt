@@ -1,6 +1,6 @@
 package com.example.binlistcompouse.domain.entity
 
-data class CardDetail(
+data class CardDetailUI(
     val number: String,
     val scheme: String,
     val type: String,

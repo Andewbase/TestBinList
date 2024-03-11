@@ -30,24 +30,24 @@ class DetailViewModel @Inject constructor(
 
             if (id != ZERO_LONG){
                 val cardDetail = getDetailsUseCase.getById(id)
-                detailState = detailState.copy(cardDetail = cardDetail)
+                detailState = detailState.copy(cardDetailUI = cardDetail)
             }
 
             if (number != SEPARATOR){
                 val cardDetail = getDetailsUseCase.getByNumber(number)
-                detailState = detailState.copy(cardDetail = cardDetail)
+                detailState = detailState.copy(cardDetailUI = cardDetail)
             }
 
-            if (detailState.cardDetail.countryName == NO_INFORMATION_AVAILABLE){
+            if (detailState.cardDetailUI.countryName == NO_INFORMATION_AVAILABLE){
                 detailState = detailState.copy(countryNameEnabled = false)
             }
-            if (detailState.cardDetail.urlBank == NO_INFORMATION_AVAILABLE){
+            if (detailState.cardDetailUI.urlBank == NO_INFORMATION_AVAILABLE){
                 detailState = detailState.copy(urlBankEnabled = false)
             }
-            if (detailState.cardDetail.phoneBank1 == NO_INFORMATION_AVAILABLE){
+            if (detailState.cardDetailUI.phoneBank1 == NO_INFORMATION_AVAILABLE){
                 detailState = detailState.copy(phoneBankEnabled = false)
             }
-            if (detailState.cardDetail.phoneBank2 == NO_INFORMATION_AVAILABLE){
+            if (detailState.cardDetailUI.phoneBank2 == NO_INFORMATION_AVAILABLE){
                 detailState = detailState.copy(phoneBankTwoEnabled = false)
             }
         }
