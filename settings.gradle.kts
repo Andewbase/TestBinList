@@ -15,4 +15,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "BinList-Compouse"
 include(":app")
- 
+include(":binlistapi")
+include(":database")
+include(":binlist-main")
+include(":binlistdata")
+include(":core")
+include(":features:binlist-home")
+include(":binlist-uikit")

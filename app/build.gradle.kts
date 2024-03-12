@@ -61,6 +61,14 @@ kapt {
 
 dependencies {
 
+    implementation(project(":features:binlist-home"))
+    implementation(project(":binlistapi"))
+    implementation(project(":database"))
+    implementation(project(":binlist-main"))
+    implementation(project(":binlistdata"))
+    implementation(project(":core"))
+    implementation(project("::binlist-uikit"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -78,10 +86,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
-    //ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     //Retrofit
     implementation(libs.okhttp)

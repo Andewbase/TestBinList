@@ -1,13 +1,10 @@
 package com.example.binlistcompouse
 
 import com.example.binlistcompouse.Const.NO_INFORMATION_AVAILABLE
-import com.example.binlistcompouse.data.Mapper
-import com.example.binlistcompouse.data.MapperActions
 import com.example.binlistcompouse.data.cache.entity.BankCardDBO
 import com.example.binlistcompouse.data.network.bank.entities.Bank
 import com.example.binlistcompouse.data.network.bank.entities.BankCard
 import com.example.binlistcompouse.data.network.bank.entities.Country
-import com.example.binlistcompouse.data.network.bank.entities.Number
 import com.example.binlistcompouse.domain.entity.BankCardItemUI
 import com.example.binlistcompouse.domain.entity.CardDetailUI
 import org.junit.Assert.assertEquals

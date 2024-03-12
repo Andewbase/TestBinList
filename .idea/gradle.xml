@@ -10,6 +10,14 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/binlist-main" />
+            <option value="$PROJECT_DIR$/binlist-uikit" />
+            <option value="$PROJECT_DIR$/binlistapi" />
+            <option value="$PROJECT_DIR$/binlistdata" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/database" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/binlist-home" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
