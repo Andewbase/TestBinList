@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.binlistcompouse.Const.SEPARATOR
 import com.example.binlistcompouse.data.cache.BankCardInfoDao
 import com.example.binlistcompouse.data.cache.BankCardInfoDataBase
 import com.example.binlistcompouse.data.cache.entity.BankCardDBO

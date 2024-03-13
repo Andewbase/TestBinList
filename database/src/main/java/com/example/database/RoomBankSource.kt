@@ -17,8 +17,6 @@ interface RoomBankSource {
     suspend fun saveBankCardInfoDao(bankCardDBO: BankCardDBO)
 
     suspend fun removeOldData()
-
-    @Singleton
     class Base @Inject constructor(
         private val bankCardInfoDao: BankCardInfoDao
         ) : RoomBankSource{

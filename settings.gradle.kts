@@ -13,12 +13,12 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "BinList-Compouse"
+rootProject.name = "BinList-Compose"
 include(":app")
 include(":binlistapi")
 include(":database")
-include(":binlist-main")
 include(":binlistdata")
 include(":core")
-include(":features:binlist-home")
+include(":features:binlist-main")
 include(":binlist-uikit")
+

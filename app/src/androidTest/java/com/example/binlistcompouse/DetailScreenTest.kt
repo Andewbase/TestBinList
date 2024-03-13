@@ -5,9 +5,6 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ApplicationProvider
-import com.example.binlistcompouse.Const.TEXT_CITY_TEST
-import com.example.binlistcompouse.Const.TEXT_PHONE2_TEST
-import com.example.binlistcompouse.Const.TEXT_PHONE_TEST
 import com.example.binlistcompouse.screen.detail.DetailScreen
 import com.example.binlistcompouse.screen.detail.DetailState
 import org.junit.Rule

@@ -8,7 +8,4 @@ import retrofit2.Retrofit
  * All stuffs required for making HTTP-requests with Retrofit client and
  * for parsing JSON-messages.
  */
-@Singleton
-class RetrofitConfig @Inject constructor(
-    val retrofit: Retrofit
-)
+

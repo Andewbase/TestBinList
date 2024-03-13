@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
-import androidx.annotation.StringRes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -18,12 +17,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.binlist_home.screen.detail.DetailScreen
-import com.example.binlist_home.screen.detail.DetailViewModel
-import com.example.binlist_home.screen.main.MainScreen
-import com.example.binlist_home.screen.main.MainViewModel
-import com.example.binlistcompouse.Const.SEPARATOR
-import com.example.binlistcompouse.Const.ZERO_INT
+import com.example.binlist.main.navigation.BankCardScreen
+import com.example.binlist.main.screen.detail.DetailScreen
+import com.example.binlist.main.screen.detail.DetailViewModel
+import com.example.binlist.main.screen.main.MainScreen
+import com.example.binlist.main.screen.main.MainViewModel
+import com.example.core.Const.SEPARATOR
+import com.example.core.Const.ZERO_INT
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -106,7 +106,4 @@ class MainActivity : ComponentActivity() {
 
 }
 
-enum class BankCardScreen(@StringRes val title: Int) {
-    Start(title = R.string.app_name),
-    Detail(title = R.string.detail_name)
-}
+

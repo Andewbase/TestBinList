@@ -4,7 +4,6 @@ import com.example.binlistcompouse.data.network.bank.BankApi
 import com.example.binlistcompouse.data.network.bank.entities.Bank
 import com.example.binlistcompouse.data.network.bank.entities.BankCard
 import com.example.binlistcompouse.data.network.bank.entities.Country
-import com.example.binlistcompouse.data.network.bank.entities.Number
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals

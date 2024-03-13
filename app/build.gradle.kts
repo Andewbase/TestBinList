@@ -61,10 +61,9 @@ kapt {
 
 dependencies {
 
-    implementation(project(":features:binlist-home"))
+    implementation(project(":features:binlist-main"))
     implementation(project(":binlistapi"))
     implementation(project(":database"))
-    implementation(project(":binlist-main"))
     implementation(project(":binlistdata"))
     implementation(project(":core"))
     implementation(project("::binlist-uikit"))
@@ -87,21 +86,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    //Retrofit
-    implementation(libs.okhttp)
-    implementation(libs.logging.interceptor)
-    implementation(libs.retrofit)
-    implementation(libs.moshi)
-
-    // Room
-    implementation (libs.androidx.room.runtime)
-    implementation (libs.androidx.room.ktx)
-    ksp (libs.androidx.room.compiler)
-    androidTestImplementation(libs.androidx.room.testing)
-
     //Hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
     implementation (libs.hilt.navigation.compose)
 }
 

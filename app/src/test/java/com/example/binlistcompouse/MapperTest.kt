@@ -1,6 +1,5 @@
 package com.example.binlistcompouse
 
-import com.example.binlistcompouse.Const.NO_INFORMATION_AVAILABLE
 import com.example.binlistcompouse.data.cache.entity.BankCardDBO
 import com.example.binlistcompouse.data.network.bank.entities.Bank
 import com.example.binlistcompouse.data.network.bank.entities.BankCard

@@ -15,10 +15,10 @@ import java.io.IOException
  * Base class for all OkHttp sources.
  */
 open class BaseRetrofitSource(
-    retrofitConfig: RetrofitConfig
+    retrofit: Retrofit
 ): RetrofitSourceActions {
 
-    val retrofit: Retrofit = retrofitConfig.retrofit
+    val retrofit: Retrofit = retrofit
 
     /**
      * Map network and parse exceptions into in-app exceptions.
