@@ -22,7 +22,7 @@ android {
             useSupportLibrary = true
         }
 
-        buildConfigField("String","BIN_LIST_API_BASE_URL", "\"https://lookup.binlist.net\"")
+
     }
 
     buildTypes {
@@ -42,7 +42,6 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        buildConfig = true
         compose = true
     }
     composeOptions {
@@ -61,12 +60,12 @@ kapt {
 
 dependencies {
 
-    implementation(project(":features:binlist-main"))
-    implementation(project(":binlistapi"))
-    implementation(project(":database"))
-    implementation(project(":binlistdata"))
     implementation(project(":core"))
-    implementation(project("::binlist-uikit"))
+    implementation(project(":binlist-uikit"))
+    implementation(project(":binlist-data"))
+    implementation(project(":binlist-database"))
+    implementation(project(":binlist-api"))
+    implementation(project(":features:binlist-main"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)
@@ -75,22 +74,10 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.navigation.testing)
-
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
 
     //Hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
     implementation (libs.hilt.navigation.compose)
 }
 

@@ -54,7 +54,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.binlist.main.R
 import com.example.binlist.main.navigation.BankCardScreen
 import com.example.binlist.uikit.BinListTheme
-import com.example.binlistdata.entity.BankCardItemUI
+import com.example.binlistcompouse.domain.entity.BankCardItemUI
 import com.example.core.Const.CHIP_CARD
 import com.example.core.Const.CLEAR_DIALOG
 import com.example.core.Const.COUNTRY_EMOJI

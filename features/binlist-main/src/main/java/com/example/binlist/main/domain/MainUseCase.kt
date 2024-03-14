@@ -1,7 +1,7 @@
 package com.example.binlist.main.domain
 
-import com.example.binlistdata.BankCardRepository
-import com.example.binlistdata.entity.BankCardItemUI
+import com.example.binlist.data.BankCardRepository
+import com.example.binlistcompouse.domain.entity.BankCardItemUI
 import com.example.core.Const.SEVEN_INT
 import com.example.core.Const.SIX_INT
 import com.example.core.DeleteOrAddOneCharacterException
@@ -10,7 +10,7 @@ import com.example.core.NotTheAppropriateSizeException
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class MainUseCase @Inject constructor(private val bankCardRepository: BankCardRepository) {
+class MainUseCase @Inject constructor(private val bankCardRepository: BankCardRepository.Base) {
 
     suspend fun saveCard(number: String){
 

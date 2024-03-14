@@ -40,6 +40,7 @@ android {
     }
 }
 
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -58,6 +59,10 @@ dependencies {
     implementation (libs.hilt.navigation.compose)
 
     implementation(project(":core"))
-    implementation(project(":binlistdata"))
+    implementation(project(":binlist-data"))
     implementation(project(":binlist-uikit"))
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.androidx.navigation.testing)
 }

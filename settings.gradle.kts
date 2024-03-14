@@ -15,10 +15,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "BinList-Compose"
 include(":app")
-include(":binlistapi")
-include(":database")
-include(":binlistdata")
 include(":core")
 include(":features:binlist-main")
 include(":binlist-uikit")
-
+include(":binlist-api")
+include(":binlist-database")
+include(":binlist-data")

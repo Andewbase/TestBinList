@@ -1,10 +1,10 @@
 package com.example.binlist.main.domain
 
-import com.example.binlistdata.BankCardRepository
-import com.example.binlistdata.entity.CardDetailUI
+import com.example.binlist.data.BankCardRepository
+import com.example.binlistcompouse.domain.entity.CardDetailUI
 import javax.inject.Inject
 
-class GetDetailsUseCase @Inject constructor(private val bankCardRepository: BankCardRepository) {
+class GetDetailsUseCase @Inject constructor(private val bankCardRepository: BankCardRepository.Base) {
 
 
     suspend fun getById(cardId: Long): CardDetailUI {
