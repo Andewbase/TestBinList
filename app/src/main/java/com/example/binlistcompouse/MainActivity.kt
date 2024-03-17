@@ -22,6 +22,7 @@ import com.example.binlist.main.screen.main.MainScreen
 import com.example.binlist.main.screen.main.MainViewModel
 import com.example.binlist.navigation.BankCardScreen
 import com.example.binlist.navigation.MainRouter
+import com.example.binlist.uikit.BinListTheme
 import com.example.core.Const.SEPARATOR
 import com.example.core.Const.ZERO_INT
 import dagger.hilt.android.AndroidEntryPoint
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            com.example.binlist.uikit.BinListTheme {
+            BinListTheme {
 
                 val navController = rememberNavController()
 
