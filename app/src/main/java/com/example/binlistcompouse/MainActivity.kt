@@ -10,18 +10,18 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NamedNavArgument
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.binlist.main.navigation.BankCardScreen
 import com.example.binlist.main.screen.detail.DetailScreen
 import com.example.binlist.main.screen.detail.DetailViewModel
 import com.example.binlist.main.screen.main.MainScreen
 import com.example.binlist.main.screen.main.MainViewModel
+import com.example.binlist.navigation.BankCardScreen
+import com.example.binlist.navigation.MainRouter
 import com.example.core.Const.SEPARATOR
 import com.example.core.Const.ZERO_INT
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,6 +42,8 @@ class MainActivity : ComponentActivity() {
 
                 val mainViewModel = hiltViewModel<MainViewModel>()
 
+                val mainRouter = MainRouter.Base(navController)
+
                 NavHost(
                     navController = navController,
                     startDestination = BankCardScreen.Start.name
@@ -49,12 +51,12 @@ class MainActivity : ComponentActivity() {
                     composable(route = BankCardScreen.Start.name) {
                         HomeScreen(
                             mainViewModel,
-                            navController
+                            mainRouter
                         )
                     }
                     dialog(route = detailRoute(), arguments = detailArgument()) {
                         Detail(
-                            navController
+                            mainRouter
                         )
                     }
                 }
@@ -65,7 +67,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun HomeScreen(
         mainViewModel: MainViewModel,
-        navController: NavHostController
+        mainRouter: MainRouter.Base
     ) {
         val state = mainViewModel.mainState
         val fullBankCards by mainViewModel.getFullBankCars.collectAsState(initial = emptyList())
@@ -73,17 +75,17 @@ class MainActivity : ComponentActivity() {
             mainState = state,
             send = mainViewModel::send,
             listCard = fullBankCards,
-            navController = navController
+            mainRouter = mainRouter
         )
     }
 
     @Composable
-    private fun Detail(navController: NavHostController) {
+    private fun Detail(mainRouter: MainRouter.Base) {
         val detailViewModel = hiltViewModel<DetailViewModel>()
 
         val detailState = detailViewModel.detailState
 
-        DetailScreen(detailState = detailState, navController)
+        DetailScreen(detailState = detailState, mainRouter)
     }
 
     private fun detailRoute(): String{

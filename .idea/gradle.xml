@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/binlist-api" />
             <option value="$PROJECT_DIR$/binlist-data" />
             <option value="$PROJECT_DIR$/binlist-database" />
+            <option value="$PROJECT_DIR$/binlist-navigation" />
             <option value="$PROJECT_DIR$/binlist-uikit" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/features" />

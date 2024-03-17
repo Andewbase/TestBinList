@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":binlist-database"))
     implementation(project(":binlist-api"))
     implementation(project(":features:binlist-main"))
+    implementation(project(":binlist-navigation"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.activity.compose)

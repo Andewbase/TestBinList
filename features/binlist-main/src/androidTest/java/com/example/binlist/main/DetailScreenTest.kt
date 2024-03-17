@@ -7,6 +7,7 @@ import androidx.navigation.testing.TestNavHostController
 import androidx.test.core.app.ApplicationProvider
 import com.example.binlist.main.screen.detail.DetailScreen
 import com.example.binlist.main.screen.detail.DetailState
+import com.example.binlist.navigation.MainRouter
 import com.example.core.Const.TEXT_CITY_TEST
 import com.example.core.Const.TEXT_PHONE2_TEST
 import com.example.core.Const.TEXT_PHONE_TEST
@@ -23,10 +24,12 @@ class DetailScreenTest {
 
         val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
 
+        val mainRouter = MainRouter.Base(navController)
+
         composeTestRule.setContent {
             DetailScreen(
                 detailState = DetailState(),
-                navController = navController
+                mainRouter = mainRouter
             )
         }
 
@@ -37,10 +40,12 @@ class DetailScreenTest {
     fun text_phone_test(){
         val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
 
+        val mainRouter = MainRouter.Base(navController)
+
         composeTestRule.setContent {
             DetailScreen(
                 detailState = DetailState(),
-                navController = navController
+                mainRouter = mainRouter
             )
         }
 
@@ -51,10 +56,12 @@ class DetailScreenTest {
     fun text_phone2_test(){
         val navController = TestNavHostController(ApplicationProvider.getApplicationContext())
 
+        val mainRouter = MainRouter.Base(navController)
+
         composeTestRule.setContent {
             DetailScreen(
                 detailState = DetailState(),
-                navController = navController
+                mainRouter = mainRouter
             )
         }
 

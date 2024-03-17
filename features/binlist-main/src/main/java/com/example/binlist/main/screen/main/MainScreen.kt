@@ -49,10 +49,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.binlist.main.R
-import com.example.binlist.main.navigation.BankCardScreen
+import com.example.binlist.navigation.MainRouter
 import com.example.binlist.uikit.BinListTheme
 import com.example.binlistcompouse.domain.entity.BankCardItemUI
 import com.example.core.Const.CHIP_CARD
@@ -70,7 +69,7 @@ fun MainScreen(
     mainState: MainState,
     send: (MainEvent) -> Unit,
     listCard: List<BankCardItemUI>,
-    navController: NavController
+    mainRouter: MainRouter.Base
 ){
 
     val dimen10dp = dimensionResource(id = R.dimen.margin_10)
@@ -94,8 +93,8 @@ fun MainScreen(
                     value = mainState.textValue,
                     onValueChanged = { send(MainEvent.UpdateTextValue(it.take(mainState.maxChar))) },
                     onCliCk = {
-                        send(MainEvent.Navigate(navController))
-                        send(MainEvent.ShowNumberCard(mainState.textValue, mainState.navigate))
+                        send(MainEvent.Navigate(mainRouter))
+                        send(MainEvent.ShowNumberCard(mainState.textValue, mainState.router))
                     },
                     enabled = !mainState.loading
                 )
@@ -144,7 +143,7 @@ fun MainScreen(
 
             Box(contentAlignment = Alignment.Center) {
                 Box{
-                    LazyColumnExample(listCard, navController)
+                    LazyColumnExample(listCard, mainRouter)
                 }
                 Box {
                     EmptyListImage(listCard.isEmpty())
@@ -226,7 +225,7 @@ fun TextFieldExample(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun LazyColumnExample(bankCards: List<BankCardItemUI>, navController: NavController){
+fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Base){
 
     val dimen10dp = dimensionResource(id = R.dimen.margin_10)
 
@@ -248,7 +247,7 @@ fun LazyColumnExample(bankCards: List<BankCardItemUI>, navController: NavControl
                   .padding(dimen10dp)
                   .animateItemPlacement()
                   .clickable {
-                      navController.navigate(route = BankCardScreen.Detail.name + "?id=${card.id}")
+                      mainRouter.launchDetailScreen(card.id)
                   }
           ){
               Column(
@@ -349,7 +348,7 @@ fun HomeScreenPreview() {
                     COUNTRY_EMOJI
                 )
             },
-            navController = rememberNavController()
+            mainRouter = MainRouter.Base(rememberNavController())
         )
     }
 }

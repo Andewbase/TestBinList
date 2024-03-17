@@ -1,7 +1,7 @@
 package com.example.binlist.main.screen.main
 
 import androidx.annotation.StringRes
-import androidx.navigation.NavController
+import com.example.binlist.navigation.MainRouter
 
 sealed interface MainEvent {
 
@@ -9,9 +9,9 @@ sealed interface MainEvent {
 
     data class ClearTextValue(val textValue: String = ""): MainEvent
 
-    data class ShowNumberCard(val value: String, val navigate: NavController?): MainEvent
+    data class ShowNumberCard(val value: String, val navigate: MainRouter.Base?): MainEvent
 
-    data class Navigate(val navigate: NavController): MainEvent
+    data class Navigate(val mainRouter: MainRouter.Base): MainEvent
 
     data class Loading(val loading: Boolean): MainEvent
 

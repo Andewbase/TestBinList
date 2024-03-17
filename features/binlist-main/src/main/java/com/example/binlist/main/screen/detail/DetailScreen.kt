@@ -32,9 +32,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.binlist.main.R
+import com.example.binlist.navigation.MainRouter
 import com.example.binlist.uikit.BinListTheme
 import com.example.core.Const.TEXT_CITY_TEST
 import com.example.core.Const.TEXT_PHONE2_TEST
@@ -44,7 +44,7 @@ import com.example.core.Const.TEXT_URL_TEST
 @Composable
 fun DetailScreen(
     detailState: DetailState,
-    navController: NavController
+    mainRouter: MainRouter.Base
 ){
 
     val context = LocalContext.current
@@ -93,7 +93,7 @@ fun DetailScreen(
                                    width = dimensionResource(id = R.dimen.margin_40)
                                )
                                .clickable {
-                                   navController.popBackStack()
+                                   mainRouter.popBackStack()
                                }
                        )
                    }
@@ -293,7 +293,7 @@ fun DetailScreenPreview() {
     BinListTheme {
         DetailScreen(
             detailState = DetailState(),
-            navController = rememberNavController()
+            mainRouter = MainRouter.Base(rememberNavController())
        )
     }
 }

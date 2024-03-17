@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BinList-Compose</string>
+    <string name="main_name">BinList-Compose</string>
     <string name="detail_name">DetailScreen</string>
 
     <string name="bin">Поиск карты</string>

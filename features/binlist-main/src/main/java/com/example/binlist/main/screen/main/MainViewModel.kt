@@ -5,10 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.example.binlist.main.R
 import com.example.binlist.main.domain.MainUseCase
-import com.example.binlist.main.navigation.BankCardScreen
+import com.example.binlist.navigation.MainRouter
 import com.example.core.ConnectionException
 import com.example.core.DeleteOrAddOneCharacterException
 import com.example.core.EmptyException
@@ -34,14 +33,14 @@ class MainViewModel @Inject constructor(
         when (mainEvent){
             is MainEvent.UpdateTextValue -> mainState = mainState.copy(textValue = mainEvent.textValue)
             is MainEvent.ClearTextValue -> mainState = mainState.copy(textValue = mainEvent.textValue)
-            is MainEvent.Navigate -> mainState = mainState.copy(navigate = mainEvent.navigate)
-            is MainEvent.ShowNumberCard -> showNumberCard(mainState.textValue, navController = mainState.navigate)
+            is MainEvent.Navigate -> mainState = mainState.copy(router = mainEvent.mainRouter)
+            is MainEvent.ShowNumberCard -> showNumberCard(mainState.textValue, mainRouter = mainState.router)
             is MainEvent.Loading -> mainState = mainState.copy(loading = mainEvent.loading)
             is MainEvent.Error -> mainState = mainState.copy(error = mainEvent.error)
         }
     }
 
-   override fun showNumberCard(numberCard: String, navController: NavController?){
+   override fun showNumberCard(numberCard: String, mainRouter: MainRouter.Base?){
         viewModelScope.launch {
 
             send(MainEvent.Loading(loading = true))
@@ -52,7 +51,7 @@ class MainViewModel @Inject constructor(
 
                 send(MainEvent.Error(error = null))
                 send(MainEvent.ClearTextValue())
-                navController!!.navigate(route = BankCardScreen.Detail.name + "?number=${numberCard}")
+                mainRouter!!.launchDetailScreen(numberCard)
 
             }catch (e: EmptyException){
                 send(MainEvent.Error(error = R.string.empty_the_input_field))
@@ -82,5 +81,5 @@ class MainViewModel @Inject constructor(
 }
 
 interface MainActions{
-    fun showNumberCard(numberCard: String, navController: NavController?)
+    fun showNumberCard(numberCard: String, mainRouter: MainRouter.Base?)
 }

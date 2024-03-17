@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.kapt)
+    alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "com.example.binlist.main"
+    namespace = "com.example.binlist.navigation"
     compileSdk = 34
 
     defaultConfig {
@@ -40,30 +40,11 @@ android {
     }
 }
 
-
 dependencies {
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
     implementation (libs.hilt.navigation.compose)
-
-    implementation(project(":core"))
-    implementation(project(":binlist-data"))
-    implementation(project(":binlist-uikit"))
-    implementation(project(":binlist-navigation"))
-
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    androidTestImplementation(libs.androidx.navigation.testing)
 }
