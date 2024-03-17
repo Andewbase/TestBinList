@@ -17,9 +17,6 @@ ksp = "1.9.22-1.0.17"
 jetbrainsKotlinJvm = "1.9.22"
 kotlinx-coroutines = "1.8.0"
 coreKtxVersion = "1.5.0"
-espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -56,9 +53,6 @@ androidx-navigation-testing = { module = "androidx.navigation:navigation-testing
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
 hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
