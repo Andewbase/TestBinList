@@ -44,7 +44,8 @@ import com.example.core.Const.TEXT_URL_TEST
 @Composable
 fun DetailScreen(
     detailState: DetailState,
-    mainRouter: MainRouter.Base
+    mainRouter: MainRouter.Base,
+    modifier: Modifier = Modifier
 ){
 
     val context = LocalContext.current
@@ -65,12 +66,13 @@ fun DetailScreen(
            ),
            colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.pantone)),
            shape = RoundedCornerShape(size = dimensionResource(id = R.dimen.margin_15)),
-           modifier = Modifier
+           modifier = modifier
                .fillMaxWidth(0.8f)
                .padding(top = dimensionResource(id = R.dimen.margin_12))
        ){
 
-           Column(modifier = Modifier
+           Column(
+               modifier = modifier
                .padding(dimensionResource(id = R.dimen.margin_8))
                .fillMaxWidth()){
 
@@ -81,12 +83,12 @@ fun DetailScreen(
                    Row {
                        Text(
                            text = stringResource(id = R.string.detailsCardInfo),
-                           modifier = Modifier.padding(top = dimen10dp)
+                           modifier = modifier.padding(top = dimen10dp)
                        )
                        Icon(
                            Icons.Filled.Clear,
                            contentDescription = "Clear Dialog",
-                           modifier = Modifier
+                           modifier = modifier
                                .padding(start = dimensionResource(id = R.dimen.margin_100))
                                .size(
                                    height = dimensionResource(id = R.dimen.margin_40),
@@ -103,10 +105,10 @@ fun DetailScreen(
                    ) {
 
                        Column(
-                           modifier = Modifier.fillMaxWidth(0.8f)
+                           modifier = modifier.fillMaxWidth(0.8f)
                        ) {
                            Row(
-                               modifier = Modifier.fillMaxWidth(),
+                               modifier = modifier.fillMaxWidth(),
                                horizontalArrangement = Arrangement.Center
                            ) {
                                Text(
@@ -115,7 +117,7 @@ fun DetailScreen(
                                )
                            }
                            Row(
-                               modifier = Modifier
+                               modifier = modifier
                                    .fillMaxWidth()
                                    .padding(end = dimen10dp),
                                horizontalArrangement = Arrangement.End
@@ -126,7 +128,7 @@ fun DetailScreen(
                                )
                            }
                            Row(
-                               modifier = Modifier
+                               modifier = modifier
                                    .fillMaxWidth()
                                    .padding(start = dimen10dp),
                                horizontalArrangement = Arrangement.Start
@@ -136,11 +138,11 @@ fun DetailScreen(
                                )
                                Text(
                                    text = detailState.cardDetailUI.type,
-                                   modifier = Modifier.padding(start = dimen5dp)
+                                   modifier = modifier.padding(start = dimen5dp)
                                )
                            }
                            Row(
-                               modifier = Modifier
+                               modifier = modifier
                                    .fillMaxWidth()
                                    .padding(start = dimen10dp),
                                horizontalArrangement = Arrangement.Start
@@ -150,7 +152,7 @@ fun DetailScreen(
                                )
                                Text(
                                    text = detailState.cardDetailUI.brand,
-                                   modifier = Modifier.padding(start = dimen5dp)
+                                   modifier = modifier.padding(start = dimen5dp)
                                )
                            }
                        }
@@ -160,7 +162,7 @@ fun DetailScreen(
                    RowDetailExample(
                        id = R.string.country_header,
                        text = detailState.cardDetailUI.countryName,
-                       modifier = Modifier
+                       modifier = modifier
                            .clickable(
                                enabled = detailState.countryNameEnabled
                            ) {
@@ -179,25 +181,28 @@ fun DetailScreen(
 
                     RowDetailExample(
                         id = R.string.currency_header,
-                        text = detailState.cardDetailUI.currency
+                        text = detailState.cardDetailUI.currency,
+                        modifier = modifier
                     )
 
                    RowDetailExample(
                        id = R.string.nameBank,
-                       text = detailState.cardDetailUI.nameBank
+                       text = detailState.cardDetailUI.nameBank,
+                       modifier = modifier
                    )
 
 
 
                    RowDetailExample(
                        id = R.string.bank_city_header,
-                       text = detailState.cardDetailUI.cityBank
+                       text = detailState.cardDetailUI.cityBank,
+                       modifier = modifier
                    )
 
                    RowDetailExample(
                        id = R.string.url,
                        text = detailState.cardDetailUI.urlBank,
-                       modifier = Modifier.clickable(
+                       modifier = modifier.clickable(
                            enabled = detailState.urlBankEnabled
                        ) {
                            Intent(
@@ -216,7 +221,7 @@ fun DetailScreen(
                    RowDetailExample(
                        id = R.string.phone_bank,
                        text = detailState.cardDetailUI.phoneBank1,
-                       modifier = Modifier.clickable(
+                       modifier = modifier.clickable(
                            enabled = detailState.phoneBankEnabled
                        ) {
                            Intent(
@@ -235,7 +240,7 @@ fun DetailScreen(
                    RowDetailExample(
                        id = R.string.phone_bank2,
                        text = detailState.cardDetailUI.phoneBank2,
-                       modifier = Modifier.clickable(
+                       modifier = modifier.clickable(
                            enabled = detailState.phoneBankTwoEnabled
                        ) {
                            Intent(
@@ -269,7 +274,7 @@ fun RowDetailExample(
 ){
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .padding(top = dimen)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.Start

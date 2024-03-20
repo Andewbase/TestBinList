@@ -38,17 +38,11 @@ class DetailViewModel @Inject constructor(
                 detailState = detailState.copy(cardDetailUI = cardDetail)
             }
 
-            if (detailState.cardDetailUI.countryName == NO_INFORMATION_AVAILABLE){
-                detailState = detailState.copy(countryNameEnabled = false)
-            }
-            if (detailState.cardDetailUI.urlBank == NO_INFORMATION_AVAILABLE){
-                detailState = detailState.copy(urlBankEnabled = false)
-            }
-            if (detailState.cardDetailUI.phoneBank1 == NO_INFORMATION_AVAILABLE){
-                detailState = detailState.copy(phoneBankEnabled = false)
-            }
-            if (detailState.cardDetailUI.phoneBank2 == NO_INFORMATION_AVAILABLE){
-                detailState = detailState.copy(phoneBankTwoEnabled = false)
+            with(detailState.cardDetailUI){
+                if (countryName == NO_INFORMATION_AVAILABLE) detailState = detailState.copy(countryNameEnabled = false)
+                if (urlBank == NO_INFORMATION_AVAILABLE) detailState = detailState.copy(urlBankEnabled = false)
+                if (phoneBank1 == NO_INFORMATION_AVAILABLE ) detailState = detailState.copy(phoneBankEnabled = false)
+                if (phoneBank2 == NO_INFORMATION_AVAILABLE) detailState = detailState.copy(phoneBankTwoEnabled = false)
             }
         }
     }

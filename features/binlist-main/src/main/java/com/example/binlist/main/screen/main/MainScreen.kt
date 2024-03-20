@@ -69,7 +69,8 @@ fun MainScreen(
     mainState: MainState,
     send: (MainEvent) -> Unit,
     listCard: List<BankCardItemUI>,
-    mainRouter: MainRouter.Base
+    mainRouter: MainRouter.Base,
+    modifier: Modifier = Modifier
 ){
 
     val dimen10dp = dimensionResource(id = R.dimen.margin_10)
@@ -77,14 +78,14 @@ fun MainScreen(
 
     Column (
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.orange))
     ) {
         
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
+            modifier = modifier
                 .padding(top = dimensionResource(id = R.dimen.margin_40))
                 .verticalScroll(rememberScrollState())
             ) {
@@ -96,12 +97,13 @@ fun MainScreen(
                         send(MainEvent.Navigate(mainRouter))
                         send(MainEvent.ShowNumberCard(mainState.textValue, mainState.router))
                     },
-                    enabled = !mainState.loading
+                    enabled = !mainState.loading,
+                    modifier = modifier
                 )
 
             if (mainState.error != null) Snackbar(
                 containerColor = colorResource(id = R.color.pantone),
-                modifier = Modifier.padding(
+                modifier = modifier.padding(
                     top = dimensionResource(id = R.dimen.margin_20),
                     start = dimen10dp,
                     end = dimen10dp
@@ -109,7 +111,7 @@ fun MainScreen(
             ) {
                 Row {
                     Row(
-                        modifier = Modifier.fillMaxWidth(0.9f)
+                        modifier = modifier.fillMaxWidth(0.9f)
                     ) {
                         Text(
                             text = stringResource(id = mainState.error)
@@ -119,7 +121,7 @@ fun MainScreen(
                         Icon(
                             Icons.Filled.Clear,
                             contentDescription = CLEAR_DIALOG,
-                            modifier = Modifier
+                            modifier = modifier
                                 .size(dimen24dp)
                                 .clickable {
                                     send(MainEvent.Error(error = null))
@@ -132,7 +134,7 @@ fun MainScreen(
         }
 
         Column (
-            modifier = Modifier.padding(top = dimen10dp),
+            modifier = modifier.padding(top = dimen10dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
@@ -143,7 +145,11 @@ fun MainScreen(
 
             Box(contentAlignment = Alignment.Center) {
                 Box{
-                    LazyColumnExample(listCard, mainRouter)
+                    LazyColumnExample(
+                      bankCards = listCard,
+                      mainRouter = mainRouter,
+                      modifier = modifier
+                    )
                 }
                 Box {
                     EmptyListImage(listCard.isEmpty())
@@ -169,7 +175,8 @@ fun TextFieldExample(
     value: String,
     onValueChanged: (String) -> Unit,
     onCliCk: () -> Unit,
-    enabled: Boolean
+    enabled: Boolean,
+    modifier: Modifier = Modifier
 ) {
 
     val dimen15dp = dimensionResource(id = R.dimen.margin_15)
@@ -203,7 +210,7 @@ fun TextFieldExample(
         )
     )
 
-    Spacer(modifier = Modifier.padding(top = dimen15dp))
+    Spacer(modifier = modifier.padding(top = dimen15dp))
 
     Button(
         onClick = {
@@ -225,12 +232,16 @@ fun TextFieldExample(
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Base){
+fun LazyColumnExample(
+    bankCards: List<BankCardItemUI>,
+    mainRouter: MainRouter.Base,
+    modifier: Modifier = Modifier
+){
 
     val dimen10dp = dimensionResource(id = R.dimen.margin_10)
 
     LazyColumn(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxHeight(0.9f)
     ){
       items(
@@ -242,7 +253,7 @@ fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Ba
               border = BorderStroke(width = 1.dp, color = colorResource(id = R.color.ivory)),
               colors = CardDefaults.cardColors(containerColor = colorResource(id = R.color.pantone)),
               shape = RoundedCornerShape(size = dimensionResource(id = R.dimen.margin_15)),
-              modifier = Modifier
+              modifier = modifier
                   .fillMaxWidth(0.8f)
                   .padding(dimen10dp)
                   .animateItemPlacement()
@@ -251,12 +262,12 @@ fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Ba
                   }
           ){
               Column(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxWidth()
                     .padding(dimen10dp)
               ) {
                   Row(
-                      modifier = Modifier
+                      modifier = modifier
                           .padding(start = dimen10dp)
                           .fillMaxWidth(),
 
@@ -269,14 +280,14 @@ fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Ba
                   }
 
                   Row(
-                      modifier = Modifier
+                      modifier = modifier
                           .fillMaxWidth()
                           .padding(start = dimensionResource(id = R.dimen.margin_30)))
                   {
                       Icon(
                           imageVector = ImageVector.vectorResource(R.drawable.baseline_credit_card_24),
                           tint = colorResource(id = R.color.ivory),
-                          modifier = Modifier.size(
+                          modifier = modifier.size(
                               width = dimensionResource(id = R.dimen.margin_60),
                               height = dimensionResource(id = R.dimen.margin_60)
                           ),
@@ -285,7 +296,7 @@ fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Ba
                   }
 
                   Row(
-                      modifier = Modifier
+                      modifier = modifier
                       .fillMaxWidth(),
                       verticalAlignment = Alignment.CenterVertically,
                       horizontalArrangement = Arrangement.SpaceAround
@@ -297,7 +308,7 @@ fun LazyColumnExample(bankCards: List<BankCardItemUI>, mainRouter: MainRouter.Ba
                   }
 
                   Row (
-                      modifier = Modifier
+                      modifier = modifier
                           .fillMaxWidth(),
                       horizontalArrangement = Arrangement.SpaceAround
                   ) {
